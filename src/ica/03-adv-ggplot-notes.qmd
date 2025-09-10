@@ -62,15 +62,24 @@ Examine the [NYTimes 2015 Temperature Visualization (html)](https://www.nytimes.
 **Data Storytelling** 
 
 - Relate the intro paragraph: "Scientists declared that 2015 was Earth’s hottest year on record..." to the *design* of the visualization.  In particular, based on the intro paragraph,
-  - What key message/claim does NYTimes want readers to be able to explore? 
+  - What key message/claim does NYTimes want readers to be able to explore?
+how much warmer their locale was in 2015 relative to historical expectations. The focus is on the specific region itself. 
+
   - How did this goal inform what information is displayed in the visualization?
+  The visualizaiton shows the actual high and low temperature compare to the normal temperature range and the record high and low for each day in 2015. 
 
 **Aesthetic Mapping** 
 
 - What specific variables (from the data codebook) underlie the visualization?
+> date, low, high, normalhigh, normallow, recordhigh, recordlow
+
 - How do these variables map to aesthetics of the visual elements, eg, position, size, shape, and color of glyphs?
+> Position: x-axis: Month, Day(time sequence through the year)
+y axis: temperature
 
+> vertical bars: light gray for record low to high, gray: normal low to high, red: actual low to high. These bars may be color-coded and layered or grouped to visually compare actual vs. expected vs. extreme ranges.
 
+> glyphs: One days with new record highs or lows, discrete colored dots (eg. red for new high, blue for new low) appear on the bar chart to highlight those extreme days. 
 
 
 ## Exercise 2
@@ -123,8 +132,10 @@ Look at the [`geom_linerange` documentation page](https://ggplot2.tidyverse.org/
 ![SFO Weather Records in 2011](https://hash-mac.github.io/stat212site-f25/images/sfo_first_graph.png)
 
 ```{r weather_plot_temp_records}
-ggplot(weather) +
+weather_plot <- ggplot(weather) +
+  geom_linerange(aes(x = dateInYear, ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
     theme_classic()
+weather_plot
 ```
 
 ::: {.callout-tip title="Keyboard Shortcuts"}
@@ -146,7 +157,12 @@ In your visualization, also display the usual temperatures (`NormalLow` and `Nor
 ![SFO observed, Average, and Record Daily Temperatures in 2011](https://hash-mac.github.io/stat212site-f25/images/sfo_second_graph.png)
 
 ```{r weather_plot_temp_all}
-
+weather_plot <- ggplot(weather) +
+  geom_linerange(aes(x = dateInYear, ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
+  geom_linerange(aes(x = dateInYear, ymin = NormalLow, ymax = NormalHigh), color = "#C8B8BA")+
+  geom_linerange(aes(x = dateInYear, ymin = Low, ymax = High), color = "#A90248")+
+    theme_classic()
+weather_plot
 
 ```
 
@@ -161,7 +177,21 @@ If you'd like finer control of the width of these lines/rectangles, check out th
 Recreate the visual demarcations of the months by adding vertical lines separating the months.  Brainstorm how we might draw those vertical lines. What `geom` might we use?  What subset of the data might we use in that `geom` layer to draw lines only at the month divisions? 
 
 ```{r }
+weather_clean |>
+  mutate(month_name = month.abb[Month])
+```
 
+```{r }
+weather_plot <- ggplot(weather, aes(x = dateInYear)) +
+  geom_linerange(aes(ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
+  geom_linerange(aes(ymin = NormalLow, ymax = NormalHigh), color = "#C8B8BA")+
+  geom_linerange(aes(ymin = Low, ymax = High), color = "#A90248")+
+  theme_classic()
+weatherplot
+ ggplot(weather_clean) 
+geom_vline(data = weather_clean, aes(xintercept = month_name))
+    theme_classic()
+weather_plot
 
 ```
 
