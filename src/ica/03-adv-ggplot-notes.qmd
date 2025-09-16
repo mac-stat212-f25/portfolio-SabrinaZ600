@@ -177,22 +177,19 @@ If you'd like finer control of the width of these lines/rectangles, check out th
 Recreate the visual demarcations of the months by adding vertical lines separating the months.  Brainstorm how we might draw those vertical lines. What `geom` might we use?  What subset of the data might we use in that `geom` layer to draw lines only at the month divisions? 
 
 ```{r }
-weather_clean |>
-  mutate(month_name = month.abb[Month])
+library(lubridate)
+weather_clean <- weather |>
+  mutate(month_name = month(date, label = FALSE, abbr = FALSE))
 ```
 
 ```{r }
-weather_plot <- ggplot(weather, aes(x = dateInYear)) +
-  geom_linerange(aes(ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
-  geom_linerange(aes(ymin = NormalLow, ymax = NormalHigh), color = "#C8B8BA")+
-  geom_linerange(aes(ymin = Low, ymax = High), color = "#A90248")+
-  theme_classic()
-weatherplot
- ggplot(weather_clean) 
-geom_vline(data = weather_clean, aes(xintercept = month_name))
-    theme_classic()
-weather_plot
-
+#weather_plot <- ggplot(weather, aes(x = date)) +
+  #geom_linerange(aes(ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
+  #geom_linerange(aes(ymin = NormalLow, ymax = NormalHigh), color = "#C8B8BA")+
+  #geom_linerange(aes(ymin = Low, ymax = High), color = "#A90248")
+#geom_vline(data = weather_clean, aes(xintercept = month_name))
+    #theme_classic()
+#weather_plot
 ```
 
 
