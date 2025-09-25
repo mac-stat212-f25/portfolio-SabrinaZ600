@@ -30,6 +30,7 @@ Run the code chunk below to load the `tidyverse` package and read in the San Fra
 
 ```{r setup}
 library(tidyverse)
+library(ggrepel)
 weather <- read_csv("https://mac-stat.github.io/data/sfo_weather.csv")
 ```
 
@@ -179,17 +180,26 @@ Recreate the visual demarcations of the months by adding vertical lines separati
 ```{r }
 library(lubridate)
 weather_clean <- weather |>
-  mutate(month_name = month(date, label = FALSE, abbr = FALSE))
+  mutate(month_name = month(date, label = FALSE, abbr = TRUE))
+weather_first <- weather|>
+  group_by(Month) |>
+  filter(Day == "1")
+weather_Text <- weather |>
+  filter(RecordText != "NA")
+
 ```
 
 ```{r }
-#weather_plot <- ggplot(weather, aes(x = date)) +
-  #geom_linerange(aes(ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
-  #geom_linerange(aes(ymin = NormalLow, ymax = NormalHigh), color = "#C8B8BA")+
-  #geom_linerange(aes(ymin = Low, ymax = High), color = "#A90248")
-#geom_vline(data = weather_clean, aes(xintercept = month_name))
-    #theme_classic()
-#weather_plot
+weather_plot <- ggplot(weather_clean) +
+  geom_linerange(aes(x = dateInYear, ymin = RecordLow, ymax = RecordHigh), color = "#ECEBE3")+
+  geom_linerange(aes(x = dateInYear,ymin = NormalLow, ymax = NormalHigh), color = "#C8B8BA")+
+  geom_linerange(aes(x = dateInYear,ymin = Low, ymax = High), color = "#A90248")+
+  scale_x_continuous(breaks = seq(15, 365, by=30), labels = month.abb, expand = c(0,0))+
+  geom_text_repel(data = weather_Text, aes(x = dateInYear, y = RecordHigh, label = RecordText, force = 2, nudge_y = 200))+
+  geom_point(data = weather_Text, aes(x = dateInYear, y = RecordHigh, label = RecordText), shape = 25, fill = "red", size = 5)+
+  geom_vline(data = weather_first, aes(xintercept = dateInYear), linetype = "dashed")
+    theme_classic()
+weather_plot
 ```
 
 
