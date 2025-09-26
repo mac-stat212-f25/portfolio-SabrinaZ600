@@ -53,3 +53,4 @@ cuisine_plot
   
 ```
 
+> My question is how does the general ratings different among these five countries cuisines, since they are all my friends home cuisines. These recipes all came from this one website called allrecipes, the rating is range from 0-5 stars. And for me, surprisingly, all five countries have similar top ratings, and the range is generally from 4 to 5 stars, except for this one outlier which is indian cuisine, which suprising have one star and five star review recipes. 
