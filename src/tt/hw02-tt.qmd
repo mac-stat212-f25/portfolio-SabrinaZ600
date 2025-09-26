@@ -1,0 +1,55 @@
+---
+title: "Homework 02"
+---
+
+
+## TidyTuesday Section (optional)
+
+::: {.callout-important title="Instructions"}
+
+You can count work on this week's TidyTuesday toward the exceptional work required for an A in the Homework component.
+
+:::
+
+
+Explore the week's [TidyTuesday](https://github.com/rfordatascience/tidytuesday) challenge. Develop a research question, then answer it through a short data story with [effective visualization(s)]({{< var effective-viz-url >}}).  Provide sufficient background for readers to grasp your narrative.
+
+What is the difference of the proportion of protein for different Chinese chicken cuisine ? 
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(stringr)
+library(ggrepel)
+```
+
+```{r}
+cuisine <- read.csv("./cuisines.csv")
+```
+
+```{r}
+cuisine_new <- cuisine |>
+  filter(country == c("Chinese", "Brazilian", "Indian", "American", "Turkish", "Japanese"))|>
+  group_by(country) |>
+  summarize(max_rating = max(avg_rating, na.rm = TRUE),
+            min_rating = min(avg_rating, na.rm = TRUE),
+            mean_rating = mean(avg_rating, na.rm = TRUE),
+            .groups = "drop",
+            top_dish = name[which.max(avg_rating)])
+```
+
+```{r}
+cuisine_plot <- ggplot(cuisine_new) +
+  geom_linerange(aes(x = country, ymin = min_rating, ymax = max_rating), linewidth = 20, color = "pink")+
+  geom_text_repel(aes(x = country, y = max_rating, label = top_dish, force = 500, force_pull = 500))+
+  geom_point(aes(x = country, y = max_rating, text = top_dish), shape = 25, fill = "red", size = 2)+
+  labs(
+    title = "General Ratings Among Five Countries Cuisines",
+    x = "Country",
+    y = "Rating"
+  ) +
+    theme_classic()
+cuisine_plot
+  
+```
+
