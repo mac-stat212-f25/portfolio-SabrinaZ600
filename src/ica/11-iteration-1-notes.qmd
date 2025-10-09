@@ -112,6 +112,7 @@ for (i in seq_along(no_groups)) {
 `seq_len()` is useful for iterating over the rows of a data frame because `seq_along()` would iterate over columns:
 
 ```{r seq_len_df}
+library(tidyverse)
 small_data <- tibble(a = 1:2, b = 2:3, c = 4:5)
 
 for (col in small_data) { # each element is the column 
@@ -192,11 +193,13 @@ Write `for`-loops that do each of the following:
     
 ```{r}    
 # for loop
-
+for(a in seq_len(10)){
+  print(2*a)
+}
 
 
 # vectorized approach with `seq()`
-
+seq(from = 2, to = 20, by = 2)
 ```
     
 2. Iterates over the `month.name` vector and stores a character vector of output containing strings like "Month 1: January", "Month 2: February".
@@ -204,7 +207,10 @@ Write `for`-loops that do each of the following:
     
 ```{r}    
 # for loop
-
+month_strings <- vector("character", length = length(month.name))
+for(i in seq_along(month.name)){
+  
+}
 
 
 # vectorized approach with `str_c()`
