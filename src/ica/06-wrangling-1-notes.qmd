@@ -387,7 +387,7 @@ sort(months_fct)
 What if we try to create a factor with values that aren't in the levels? (e.g., a typo in a month name)
 
 ```{r months_typo}
-months2 <- c("Jna", "Mar")
+months2 <- c("Jan", "Mar")
 factor(months2, levels = month.abb)
 ```
 
@@ -530,6 +530,8 @@ gss_cat |>
 
 ```{r}
 ratings <- c("High", "Medium", "Low")
+ratings_fct <- fct(ratings, levels = c("Low", "Medium", "High"))
+ratings_fct
 ```
 
 
