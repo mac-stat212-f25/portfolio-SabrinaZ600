@@ -2,7 +2,7 @@
 title: "4 Advanced Spatial Viz P1"
 ---
 
-```{r doc_setup, echo=FALSE, message=FALSE}
+```{r doc_setup}
 #| echo: false
 #| message: false
 
