@@ -304,6 +304,12 @@ Using the `diamonds` dataset:
 1. Transform the `x`, `y`, and `z` columns so that the units of millimeters are displayed (e.g., "4.0 mm").
 
 ```{r}
+add_mm <- function(x) {
+    str_c(x, " mm")
+}
+
+diamonds |> 
+    mutate(across(.cols = c(x, y, z), .fns = add_mm))
 
 ```
 
@@ -311,7 +317,8 @@ Using the `diamonds` dataset:
     - Hint: type `is.` and hit Tab in the Console. Scroll through the function options. Do the same with `as.`
 
 ```{r}
-
+diamonds |>
+    mutate(across(.cols = where(is.numeric), .fns = as.character))
 ```
 
 
