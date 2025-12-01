@@ -1,0 +1,153 @@
+# ---
+
+## title: "Exam 2 Summary Sheet"
+
+# Missing Data
+
+#### **Explicit missing data**: `NA`.
+
+1.  **Drop** the cases or rows with any missing data from the analysis
+2.  **Create** a category for missing values.
+3.  **Impute** (or fill in values for) the missing data using imputation algorithms.
+
+#### **Implicit missing data** is data that is missing but not explicitly marked as such. (eg. entire row missing)
+
+**Make implicit missingness explicit** before we can work with the data.
+
+-   If a combination is missing, you can create a new row with explicit missing values.
+    -   `complete()`
+
+        eg.
+
+        ```{r}
+        study_data_full <- study_data |> 
+          complete(pid, visit)
+        ```
+
+## Missing Data Mechanisms
+
+-   **Missing completely at random (MCAR)**:
+    -   The probability of missing data for a variable is the same for all cases. Implies that causes of the missing data are unrelated to the data.
+
+<!-- -->
+
+-   **Missing at random (MAR):**
+    -   The probability of missing data is related to **observed** variables but unrelated to unobserved information.
+
+<!-- -->
+
+-   **Missing not at random (MNAR):**
+    -   The probability of missing data is related to **unobserved** variables (and probably observed variables too).
+
+**Explore Missingness:**
+
+```{r, eval=FALSE}
+naniar::vis_miss() 
+
+naniar::miss_var_summary()
+```
+
+**Simulate Missing Data:**
+
+Single Inputation
+
+```{r, eval=FALSE}
+rnorm(n, mean, sd) #generates random numbers from a normal (or Gaussian) distribution
+rbinom(n, size, prob) #used to generate random numbers from a binomial distribution
+```
+
+multiple Inputation
+
+```{r, eval = FALSE}
+mice() #Multivariate Imputation by Chained Equations (MICE)
+```
+
+# Function
+
+## **Define Function**
+
+```{r, eval = FALSE}
+function_name <- function(input_name_1, input_name_2 = default_value_2){
+
+  # function body - code that does something
+
+  return(output)
+}
+
+# Calling a function (all valid ways)
+function_name(input_name_1 = 2, input_name_2 = 4)
+function_name(2, 4)
+function_name(input_name_2 = 4, input_name_1 = 2)
+function_name(2)
+```
+
+The core parts of defining a function include:
+
+-   **`function()` directive**
+-   **Arguments/Inputs**
+-   **Function body**
+    -   The code inside the curly braces `{ }`
+-   **Return value**
+
+<!-- -->
+
+-   If we don't provide a `return()`, the last value that gets evaluated in the **function body** and isn't stored as an object is what the function returns.
+
+## Scope
+
+The area of a program where a named object is recognized and can be used
+
+**Lexical scope:** The scope of a variable is determined by where it is created in the code
+
+-   When code refers to an object (e.g. data set, function, vector, etc.), R looks for the object in the current, **local environment**.
+-   **parent environment** –\> **global environment –\> loaded packages**
+
+## Tips of Writing Function
+
+-   **Body of the function** (the task that you are wanting to repeat)
+-   **Identify the parts of the function that could/would change** (these are the **inputs**)
+    -   Update the body of the function to be in terms of the inputs
+    -   Avoid manually typing anything that is specific to one input; use code to get that (such as unique values of a variable)
+-   **Identify the output you want to return**
+
+## The `if-else if-else` Control Structure
+
+```{r, eval = FALSE}
+if (logical_condition) {
+    # some code
+} else if (other_logical_condition) {
+    # some code
+} else {
+    # some code
+}
+```
+
+::: {.callout-tip title="To vectorize or not to vectorize"}
+The `if () else {}` code is not **vectorized**; the logical condition in `if()` cannot be a logical vector of length longer than 1.
+:::
+
+# DataBase
+
+DataWarehouse: Base on **Relational** **(SQL) databases**
+
+## Connecting to a database in R with `DBI`
+
+The `DBI` package (**d**ata**b**ase **i**nterface) provides general tools for interacting with databases from R.
+
+-   `DBI`: connect with an **in-process** database (`duckdb`), one that runs locally on your computer.
+
+-   `duckdb_read_csv()`: store data directly into the `duckdb` database without first having to read it into R.
+
+-   Set up a database connection with `dbConnect()` and initialize a temporary database with `duckdb()`:
+
+    `{library(tidyverse)} library(DBI) library(duckdb) con <- DBI::dbConnect(duckdb::duckdb()) class(con)`
+
+## SQL
+
+a programming language to query or retrieve data from a relational database
+
+### SQL with `dplyr`
+
+**show_query():** translate from r to sql
+
+**clauses:** `SELECT`, `FROM`, `WHERE`, `GROUP BY`, and `ORDER BY`

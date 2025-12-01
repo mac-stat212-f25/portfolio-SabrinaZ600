@@ -1,23 +1,23 @@
 ---
 title: "10 Base R"
+editor: 
+  markdown: 
+    wrap: sentence
 ---
 
 ## 🧩 Learning Goals
 
 By the end of this lesson, you should be able to:
 
-- Identify and define the properties of common structures in R
-- Subset vectors and lists with `[` by index, name, logical vector, and indirectly with objects
-- Subset data frames and lists with `$` and `[[`
-- Use the `str()` function to examine the structure of an unfamiliar object and extract components from the object
-- Apply printing strategies to streamline the debugging and development process
+-   Identify and define the properties of common structures in R
+-   Subset vectors and lists with `[` by index, name, logical vector, and indirectly with objects
+-   Subset data frames and lists with `$` and `[[`
+-   Use the `str()` function to examine the structure of an unfamiliar object and extract components from the object
+-   Apply printing strategies to streamline the debugging and development process
 
-
-## Common R Object Structures 
+## Common R Object Structures
 
 **Vector**: A vector is a **collection of elements** of the **same type** (e.g., numeric, integer, character, logical).
-
-
 
 ```{r}
 num_vec <- vector("numeric", length = 2) #empty vector: Zeros
@@ -26,14 +26,12 @@ class(num_vec)
 length(num_vec)
 ```
 
-
 ```{r}
 log_vec <- vector("logical", length = 3) #empty vector: FALSE
 log_vec
 class(log_vec)
 length(log_vec)
 ```
-
 
 ```{r}
 chr_vec <- vector("character", length = 4) #empty vector: empty strings
@@ -42,9 +40,7 @@ class(chr_vec)
 length(chr_vec)
 ```
 
-
-- *Fun Fact: A vector can have names for each of its elements.*
-
+-   *Fun Fact: A vector can have names for each of its elements.*
 
 ```{r}
 named_vec <- c('name1' = 1, 'name2' = 2) # Named numeric vector
@@ -53,13 +49,10 @@ class(named_vec)
 length(named_vec)
 ```
 
-
-
 **List**: A list is a collection of elements (e.g., vectors, matrices, data frames, other lists).
 
-- A list can have different types of elements.
-- A list can have names for its elements.
-
+-   A list can have different types of elements.
+-   A list can have names for its elements.
 
 ```{r}
 ex_list <- list(a = 1:3, b = c("a", "b", "c"), c = matrix(1:6, nrow = 2))
@@ -70,12 +63,11 @@ length(ex_list) # number of elements in a list
 
 ```
 
-## Other Common R Object Structures 
-
+## Other Common R Object Structures
 
 **Array**: An array is a **vector** with a dimension attribute.
 
-- Like a vector, an array can only have one type of data (e.g., numeric, character).
+-   Like a vector, an array can only have one type of data (e.g., numeric, character).
 
 ```{r}
 ary <- array(NA, dim = c(2,3,4))
@@ -87,10 +79,9 @@ dim(ary) # Get the dimensions of the array
 
 ```
 
-
 **Matrix**: A matrix is an **array** with only 2 dimensions (rows, columns).
 
-- Like a vector, a matrix can only have one type of data (e.g., numeric, character).
+-   Like a vector, a matrix can only have one type of data (e.g., numeric, character).
 
 ```{r}
 m <- matrix(NA, nrow = 2, ncol = 3)
@@ -102,15 +93,12 @@ dim(m) # Get the dimensions of the matrix
 
 ```
 
+**Data Frame/tibble**: A data frame is a named **list** with **elements** of equal length.
 
-
-
-**Data Frame/tibble**: A data frame is a named **list** with **elements** of equal length. 
-
-- Each element is a "column" in the data frame. 
-- The columns can be of different types (e.g., character, numeric, logical, lists, etc.). 
-- Data frames are the most common way to store data in R.
-- [Tibbles do less and complain more than base data.frames](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+-   Each element is a "column" in the data frame.
+-   The columns can be of different types (e.g., character, numeric, logical, lists, etc.).
+-   Data frames are the most common way to store data in R.
+-   [Tibbles do less and complain more than base data.frames](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 
 ```{r}
 mod_df <- tibble(x = 1:10, y = 1:10 + rnorm(10))
@@ -122,21 +110,17 @@ length(df) # number of "elements" in a data frame is the number of "columns"
 
 ```
 
-
-
-
-## Base R Subsetting 
+## Base R Subsetting
 
 The content here comes from Chapter 27 of R4DS, with some small additions.
 
-## Selecting elements with `[` 
+## Selecting elements with `[`
 
 We can subset common R structures and **maintain the class structure** with `[ ]`.
 
 There are four main types of things that you can subset with, i.e., that can be the `i` in `x[i]`:
 
-1.  **A vector of positive integers**.
-    Subsetting with positive integers keeps the elements at those positions:
+1.  **A vector of positive integers**. Subsetting with positive integers keeps the elements at those positions:
 
 ```{r}
 # Vectors
@@ -146,7 +130,6 @@ x[2:4]
 class(x[2:4]) # result is a character vector
 ```
 
-
 ```{r}
 # Lists
 y <- list(a = 1:3, b = c("a", "b", "c"), c = matrix(1:6, nrow = 2))
@@ -154,7 +137,6 @@ y[c(1, 2)]
 
 class(y[c(1)]) # result is a list
 ```
-
 
 By repeating a position, you can actually make a longer output than input, making the term "subsetting" a bit of a misnomer.
 
@@ -166,9 +148,7 @@ x[c(1, 1, 2)]
 y[c(1, 1, 2)]
 ```
 
-
-2.  **A vector of negative integers**.
-    Negative values drop the elements at the specified positions:
+2.  **A vector of negative integers**. Negative values drop the elements at the specified positions:
 
 ```{r}
 # Vector
@@ -179,10 +159,7 @@ y[c(-1)]
 
 ```
 
-
-3.  **A logical vector**.
-    Subsetting with a logical vector only keeps values corresponding to `TRUE`.
-    This is generally used with comparison functions and operators.
+3.  **A logical vector**. Subsetting with a logical vector only keeps values corresponding to `TRUE`. This is generally used with comparison functions and operators.
 
 ```{r}
 # Vector
@@ -198,14 +175,12 @@ x[x > 5]
 x[x > 5 & !is.na(x)]
 ```
 
-
 Unlike `filter()`, `NA` indices will be included in the output as `NA`s unless you explicitly remove them (`filter()` removes instances of missing values by default.
 
-```{r}    
+```{r}
 # Compare with filter 
 filter(tibble(x = x), x > 5)
 ```
-
 
 ```{r}
 # List
@@ -214,10 +189,7 @@ y[y |> map_lgl(~ is.numeric(.x))] # example of a map function!
 y[y |> map_lgl(~ is.character(.x))]
 ```
 
-
-
-4.  **A character vector**.
-    If you have a named vector or list, you can subset it with a character vector:
+4.  **A character vector**. If you have a named vector or list, you can subset it with a character vector:
 
 ```{r}
 # Named Vector
@@ -231,21 +203,17 @@ y[c('a','a','c')]
 
 As with subsetting with positive integers, you can use a character vector to duplicate individual entries.
 
-
-**Be very wary of vector recycling when doing this!** 
-The number of things that you're inserting should either be 1 or the size of the `x[i]` subset.
+**Be very wary of vector recycling when doing this!** The number of things that you're inserting should either be 1 or the size of the `x[i]` subset.
 
 ```{r}
 x <- c(first = "one", second = "two", third = "three", fourth = "four")
 x
 ```
 
-
 ```{r}
 x[c(1, 3)] <- "new" # Replacement length is 1
 x
 ```
-
 
 ```{r}
 x <- c(first = "one", second = "two", third = "three", fourth = "four")
@@ -253,13 +221,11 @@ x[c(1, 3)] <- c("new1", "new2") # Replacement length is 2, and length of subset 
 x
 ```
 
-
 ```{r}
 x <- c(first = "one", second = "two", third = "three", fourth = "four")
 x[c(1, 3, 4)] <- c("new1", "new2") # BAD! Replacement length is 2, and length of subset is 3
 x
 ```
-
 
 ```{r}
 x <- c(first = "one", second = "two", third = "three", fourth = "four")
@@ -267,9 +233,9 @@ x[c(1, 3)] <- c("new1", "new2", "new3") # BAD! Replacement length is 3, and leng
 x
 ```
 
-## Subsetting Matricies and Data Frames with `[` 
+## Subsetting Matricies and Data Frames with `[`
 
-All of the above subsetting options can be used for subsetting matrices and data frames (named list of elements of equal length). 
+All of the above subsetting options can be used for subsetting matrices and data frames (named list of elements of equal length).
 
 ```{r}
 m <- matrix(1:12, nrow = 3, ncol = 4)
@@ -279,7 +245,6 @@ m[1:5] # Matrix = vector (down the columns) with dimensions
 ```
 
 You can use a comma to subset by rows and columns separately.
-
 
 ```{r}
 m[1,] # Get 1st row
@@ -302,13 +267,14 @@ m[c(TRUE, FALSE, FALSE),] # Get the 1st row via a logical
 # Add row and column names to the matrix
 colnames(m) <- str_c("col", 1:4)
 rownames(m) <- str_c("row", 1:3)
-m["row1",]
+m[c(1,3),]
 
 ```
 
-## Selecting a single element with `$` and `[[` 
+## Selecting a single element with `$` and `[[`
 
-We can use `$` and `[[` to extract a single column of a data frame or an element within a list. This **breaks out of the original class structure**.
+We can use `$` and `[[` to extract a single column of a data frame or an element within a list.
+This **breaks out of the original class structure**.
 
 ```{r}
 mtcars
@@ -317,17 +283,52 @@ mtcars[["mpg"]]
 mtcars |> pull(mpg)
 ```
 
-## Exercises 
+## Exercises
 
-1. **Subsetting Functions** For each of the tasks below, write a function that take a vector as input returns the desired output:
+1.  **Subsetting Functions** For each of the tasks below, write a function that take a vector as input returns the desired output:
 
-a. The elements at even-numbered positions. (Hint: use the `seq()` function.)
-b. Every element except the last value.
-c. Only even values (and no missing values).
+<!-- -->
 
-## Exploring the structure of an object with `str()`  
+a.  The elements at even-numbered positions. (Hint: use the `seq()` function.)
 
-The `str()` function shows you the structure of an object and is useful for exploring model objects and objects created from packages that are new to you. 
+```{r}
+get_even_pos <- function(x) {
+    if (length(x) <= 1) {
+        print("No even positions")
+    } else {
+        idx <- seq(2, length(x), by = 2)
+        x[idx]
+    }
+}
+get_even_pos(1:10)
+get_even_pos(1:9)
+get_even_pos(1)
+```
+
+a.  Every element except the last value.
+
+    ```{r}
+    get_all_but_last <- function(x) {
+        head(x, -1)
+        # x[1:(length(x)-1)]
+    }
+    get_all_but_last(1:10)
+    ```
+
+b.  Only even values (and no missing values).
+
+    ```{r}
+    get_evens <- function(x) {
+        x[x %% 2 == 0 & !is.na(x)]
+    }
+
+    get_evens(c(1, 2, 7, NA))
+    get_evens(c(1, 2, 7, 8, NA))
+    ```
+
+## Exploring the structure of an object with `str()`
+
+The `str()` function shows you the structure of an object and is useful for exploring model objects and objects created from packages that are new to you.
 
 In the output of `str()` dollar signs indicate named components of a list that can be extracted via `$` or `[[`.
 
@@ -343,14 +344,14 @@ str(mod)
 str(mod_summ)
 ```
 
-## Exercise 
+## Exercise
 
-2. **CI Function** Write a function that fits a linear model on the dataset using the given outcome and predictor variables and return a data frame (`tibble`) with the coefficient estimate and CI for the predictor of interest. It should take the following inputs:
+2.  **CI Function** Write a function that fits a linear model on the dataset using the given outcome and predictor variables and return a data frame (`tibble`) with the coefficient estimate and CI for the predictor of interest. It should take the following inputs:
 
-- `data`: A dataset
-- `yvar`: Outcome variable to be used in a linear model (a length-1 character vector)
-- `preds`: Predictor variables to be used in a linear model (a character vector)
-- `pred_of_interest`: The variable whose coefficient estimate and confidence interval are of interest (a length-1 character vector and should be one of `preds`)
+-   `data`: A dataset
+-   `yvar`: Outcome variable to be used in a linear model (a length-1 character vector)
+-   `preds`: Predictor variables to be used in a linear model (a character vector)
+-   `pred_of_interest`: The variable whose coefficient estimate and confidence interval are of interest (a length-1 character vector and should be one of `preds`)
 
 Development tip: As you develop, it will help to create objects for the arguments so that you can see what output looks like interactively:
 
@@ -366,7 +367,7 @@ pred_of_interest <- "hp"
 When you're done developing your function, remove these objects to declutter your environment by entering `rm(data, yvar, preds, pred_of_interest)` in the Console.
 
 ```{r eval=FALSE}
-fit_mod_and_extract <- function(___) {
+fit_mod_and_extract <- function(data, yvar, preds, pred_of_interest) {
     # Use str_c to create a string (formula_str) that looks like "yvar ~ pred1 + pred2"
     # Look at the documentation for a helpful argument
     mod_formula_str <- 
@@ -381,9 +382,9 @@ fit_mod_and_extract <- function(___) {
     # Return the coefficient estimate and CI for the predictor of interest
     tibble(
         which_pred = pred_of_interest,
-        estimate = ___,
-        ci_lower = ___,
-        ci_upper = ___
+        estimate = mod$coefficients[pred_of_interest],
+        ci_lower = ci[pred_of_interest, "2.5 %"],
+        ci_upper = ci[pred_of_interest, "97.5 %"]
     )
 }
 ```
@@ -395,17 +396,14 @@ fit_mod_and_extract <- function(___) {
 
 ```
 
+## Debugging Strategies
 
-
-
-## Debugging Strategies   
-
-When writing functions and working with functions that you wrote, you may encounter errors that are hard to figure out. 
+When writing functions and working with functions that you wrote, you may encounter errors that are hard to figure out.
 
 Here are some strategies to help you debug the issues you encounter:
 
-- Use `print()` and `cat()` to print out intermediate results and messages within a function.
-  - Examples: `print(x)`, `cat("The value of x is", x, "\n")`
+-   Use `print()` and `cat()` to print out intermediate results and messages within a function.
+    -   Examples: `print(x)`, `cat("The value of x is", x, "\n")`
 
 ```{r eval=FALSE}
 My_own_sum <- function(x){
@@ -423,10 +421,9 @@ My_own_sum <- function(x){
 My_own_sum(c(1,2,3))
 ```
 
+-   Use `browser()` to pause the function at a certain point and interactively explore the environment. Press "Next" or type `n` to run the next line of code. Type the name of an object in the Console to see its value at this point in the function. You can type `Q` to quit the browser.
+    -   Example below:
 
-- Use `browser()` to pause the function at a certain point and interactively explore the environment. Press "Next" or type `n` to run the next line of code. Type the name of an object in the Console to see its value at this point in the function. You can type `Q` to quit the browser. 
-  - Example below:
-  
 ```{r eval = FALSE}
 fit_mod_and_extract <- function(data, yvar, preds, pred_of_interest) {
     # Use str_c to create a string (formula_str) that looks like "yvar ~ pred1 + pred2"
@@ -456,9 +453,8 @@ fit_mod_and_extract <- function(data, yvar, preds, pred_of_interest) {
 fit_mod_and_extract(data = mtcars, yvar = "mpg", preds = c("hp", "wt"), pred_of_interest = "hp")
 ```
 
-
-- Use `try()` to catch errors and print out a message when an error occurs.
-  - Example below:
+-   Use `try()` to catch errors and print out a message when an error occurs.
+    -   Example below:
 
 ```{r error=TRUE}
 My_own_sum <- function(x){
@@ -473,9 +469,8 @@ class(results)
 
 ```
 
-
-- Include `if else` statements within a function to ensure that you are passing the right type of input to a function. You can create you own custom error message with `stop()`. 
-  - Example below:
+-   Include `if else` statements within a function to ensure that you are passing the right type of input to a function. You can create you own custom error message with `stop()`.
+    -   Example below:
 
 ```{r error=TRUE}
 My_own_sum <- function(x){
@@ -492,7 +487,7 @@ results <- try(My_own_sum(c("a","b","c")), silent = TRUE)
 class(results)
 
 ```
+
 ## Done!
 
-- Check the ICA Instructions for how to (a) push your code to GitHub and (b) update your portfolio website
-
+-   Check the ICA Instructions for how to (a) push your code to GitHub and (b) update your portfolio website

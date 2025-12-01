@@ -242,14 +242,18 @@ The SQL command `WHERE` is like the `filter` command we have been using in `dply
 *Hint: TOP is not necessary here because you want all result rows.*
 
 ```{sql eval=FALSE}
-
+SELECT Title, Score
+FROM Posts
+WHERE PostTypeId = 1 AND Score >= 110
 ```
 
 **Exercise:** Find posts whose title contains some place you are interested in (you pick!).
 *Hint: use SQL's [LIKE operator](http://www.sqltutorial.org/sql-like/).*
 
-```{sql eval=FALSE}
-
+```{sql eval=TRUE}
+SELECT Title, Score
+FROM Posts
+WHERE PostTypeId = 1 AND Title LIKE '%Minnesota%'
 ```
 
 Note that you can look up the actual webpage for any question using its `Id`.
