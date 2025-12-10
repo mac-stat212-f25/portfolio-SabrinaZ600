@@ -1,0 +1,24 @@
+---
+title: "Homework 01"
+---
+
+
+## TidyTuesday Section
+
+Explore the week's [TidyTuesday](https://github.com/rfordatascience/tidytuesday) challenge. Develop a research question, then answer it through a short data story with [effective visualization(s)]({{< var effective-viz-url >}}).  Provide sufficient background for readers to grasp your narrative.
+
+> Research Question: Do majors with more women graduates tend to have lower median earnings? 
+
+> Background: Nowadays, college degree doesnt infer to a guaranteed success in economics. The bottom graduates earn even less than half of high school grads. Choosing a major is the most critical to avoid poor outcomes. Base on the data that we are given, gender balance across majors can be really uneven, women are overpresented in fields like psychology and education, but underpresented in most of the STEM majors.So i have this question of does gender composition of a major related to earning status.
+
+```{r}
+library(tidyverse)
+grads <- read.csv("./recent-grads.csv") #|>
+  #filter(Major_category == "Education")
+  
+  ggplot(grads, aes(x = ShareWomen, y = Median, color = Major_category)) +
+  geom_point() +
+    geom_smooth()
+```
+
+> There is a general negative relationship between female share and earnings, but it also depends on the majors, majors with more woman tends to have the lowest radian for full time wage. Fields dominated with womanlike education and social science dont seem to vary a lot, their wages keep stable at the lower ends. And for male dominated majors like enginnering, the variation is bigger and the more the share of women, the lower the median for wage. 
