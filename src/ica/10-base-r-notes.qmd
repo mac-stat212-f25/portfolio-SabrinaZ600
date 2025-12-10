@@ -101,6 +101,7 @@ dim(m) # Get the dimensions of the matrix
 -   [Tibbles do less and complain more than base data.frames](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 
 ```{r}
+library(tibble)
 mod_df <- tibble(x = 1:10, y = 1:10 + rnorm(10))
 
 df <- tibble(a = 1:3, b = c("constant", "x", "x squared"), d = list(lm(y ~ 1, data = mod_df), lm(y ~ x, data = mod_df), lm(y ~ x + I(x^2), data = mod_df)))
@@ -177,13 +178,14 @@ x[x > 5 & !is.na(x)]
 
 Unlike `filter()`, `NA` indices will be included in the output as `NA`s unless you explicitly remove them (`filter()` removes instances of missing values by default.
 
-```{r}
+```{r, eval = FALSE}
 # Compare with filter 
 filter(tibble(x = x), x > 5)
 ```
 
-```{r}
+```{r, eval = FALSE}
 # List
+library(purrr)
 y[c(TRUE, FALSE, TRUE)]
 y[y |> map_lgl(~ is.numeric(.x))] # example of a map function!
 y[y |> map_lgl(~ is.character(.x))]
@@ -254,6 +256,7 @@ m[,1] # Get 1st column
 . . .
 
 ```{r}
+library(stringr)
 m[1,3] # Get 1st row and 3rd column
 
 m[c(1,3),] # Get 1st and 3rd rows
@@ -277,6 +280,7 @@ We can use `$` and `[[` to extract a single column of a data frame or an element
 This **breaks out of the original class structure**.
 
 ```{r}
+library(tidyverse)
 mtcars
 mtcars$mpg
 mtcars[["mpg"]]

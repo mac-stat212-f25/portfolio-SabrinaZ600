@@ -323,7 +323,7 @@ URL to see the structure of this output.
     and attributes.
 -   We can use `resp_body_xml()` to read in the XML as an R object.
 
-```{r bgg_response}
+```{r bgg_response, eval=FALSE}
 resp <- req_perform(req)
 resp
 resp <- resp_body_xml(resp)
@@ -337,7 +337,7 @@ structure to extract the information we need.
 Let's first use the `xml_structure()` function to see how information is
 organized:
 
-```{r xml_structure}
+```{r xml_structur, eval=FALSE}
 xml_structure(resp)
 ```
 
@@ -356,7 +356,7 @@ The key navigation and extraction functions in `xml2` are:
     the right of the `=` in quotes)
     -   `<node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2">`
 
-```{r xml_nav_extract}
+```{r xml_nav_extract, eval=FALSE}
 # Get the item nodes in 2 different ways
 resp |> xml_find_all("item")
 resp |> xml_children()
@@ -377,13 +377,13 @@ resp |> xml_find_all("item/name") |> xml_attr("type")
 1.  Get the board game name (e.g., "Murder Mystery..." and "Robinson
     Crusoe")
 
-    ```{r}
+    ```{r, eval = FALSE}
     resp |> xml_find_all("item/name") |> xml_attr("value")
     ```
 
 2.  Get the board game ID number (e.g., 63495, 40175)
 
-    ```{r}
+    ```{r, eval = FALSE}
     resp |> xml_find_all("item") |> xml_attr("id")
     ```
 
@@ -505,10 +505,9 @@ resp_pt <- req_pt |> req_perform() |> resp_body_json(simplifyVector = TRUE)
 
 #### Exploring complex lists
 
-`resp_pt` is a **list**. A list is a useful structure for storing
-elements of different types. Data frames are special cases of lists
-where each list element has the same length (but where the list elements
-have different classes).
+. A list is a useful structure for storing elements of different types.
+Data frames are special cases of lists where each list element has the
+same length (but where the list elements have different classes).
 
 Lists are a very flexible data structure but can be very confusing
 because list elements can be lists themselves!
@@ -570,7 +569,7 @@ with:
 -   the abstracts and leading paragraphs of the articles found in the
     search
 
-    ```{r}
+    ```{r, eval=FALSE}
     resp_pt$copyright
     resp_pt$response$meta$hits
 

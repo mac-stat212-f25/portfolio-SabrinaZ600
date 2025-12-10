@@ -166,38 +166,58 @@ Notes:
 
 -   Recall that `bind_rows()` from `dplyr` and `list_rbind()` from `purrr` takes a list of data frames and stacks them on top of each other.
 
-    ```{r}
+```{r}
     # Helper function to reduce html_elements() |> html_text() code duplication
     get_text_from_page <- function(page, css_selector) {
-        page |>
-            html_elements(css_selector) |>
-            html_text()
+    page |>
+        html_elements(css_selector) |>
+        html_text()
     }
 
     scrape_page <- function(url) {
-        Sys.sleep(2)
-        page <- read_html(url)
-        article_titles <- get_text_from_page(page, ".thumbnail-teaser__heading")
-        article_dates_abstracts <- get_text_from_page(page, ".thumbnail-teaser__description")
-        
-        tibble(
-            title = article_titles,
-            date_abstract = article_dates_abstracts
-        ) |> 
-        separate_wider_delim(
-        delim = " — ", 
-        cols = dates_abstract, 
-        names = c("pub_date", "abstract"))
+    Sys.sleep(2)
+    page <- read_html(url)
+    article_titles <- get_text_from_page(page, ".thumbnail-teaser__heading")
+    article_dates_abstracts <- get_text_from_page(page, ".thumbnail-teaser__description")
+
+    tibble(
+        title = article_titles,
+        date_abstract = article_dates_abstracts
+    ) |> 
+    separate_wider_delim(
+    delim = " — ", 
+    cols = date_abstract, 
+    names = c("pub_date", "abstract"))
     }
+```
 
-    # Create a character vector of URLs for the first 5 pages
+```{r}
+# Create a character vector of URLs for the first 5 pages
+base_url <- "https://www.nih.gov/news-events/news-releases"
+urls_all_pages <- c(base_url, str_c(base_url, "?page=", 1:4))
+
+pages2 <- purrr::map(urls_all_pages, scrape_page)
+df_articles2 <- bind_rows(pages2)
+head(df_articles2)
+```
+
+```{r}
+#For Loop
+pages <- vector("list", length = 5)
+
+for (i in 1:5) {
     base_url <- "https://www.nih.gov/news-events/news-releases"
-    urls_all_pages <- c(base_url, str_c(base_url, "?page=", 1:4))
+    if (i==1) {
+        url <- base_url
+    } else {
+        url <- str_c(base_url, "?page=", i-1)
+    }
+    pages[[i]] <- scrape_page(url)
+}
 
-    pages2 <- purrr::map(urls_all_pages, scrape_page)
-    df_articles2 <- bind_rows(pages2)
-    head(df_articles2)
-    ```
+df_articles <- bind_rows(pages)
+head(df_articles)
+```
 
 ## Example 2: NIH STEM Teaching Resources
 

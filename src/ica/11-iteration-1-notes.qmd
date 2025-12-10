@@ -438,7 +438,7 @@ Note that in `df_arg_combos`:
 -   `mod_formula`: this column is a **list** and you can extract the 1st element with `[[1]]`
 -   `remove_outliers`: this column is a **vector** and you can extract the 1st element with `[1]`
 
-```{r}
+```{r eval = FALSE}
 lin_mod_res_for <- vector(mode = "list", length = nrow(df_arg_combos))
 
 for (i in seq_along(lin_mod_res_for)) {

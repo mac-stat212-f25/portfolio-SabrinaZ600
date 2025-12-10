@@ -66,8 +66,6 @@ book:
 
     - part: "TidyTuesday"
       chapters:
-      - src/tt/2025-07-08.qmd
-      - src/tt/2025-07-15.qmd
       - src/tt/hw01-tt.qmd
       - src/tt/hw02-tt.qmd
 
@@ -82,12 +80,12 @@ book:
       - src/ica/09-functions-notes.qmd
       - src/ica/10-base-r-notes.qmd
       - src/ica/11-iteration-1-notes.qmd
-
+      - src/ica/12-iteration-2-notes.qmd
+      - src/ica/14-apis-2-notes.qmd
+      - src/ica/15-scraping-notes.qmd
 
   appendices:
-  - src/appx/appx-sample1.qmd
-  - src/appx/appx-sample2.qmd
-  - mm/mm.md
+  - src/appx/Exam2SummarySheet.qmd
 
 
 

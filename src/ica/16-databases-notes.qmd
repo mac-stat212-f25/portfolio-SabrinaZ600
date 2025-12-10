@@ -227,7 +227,9 @@ Looking again at the [Schema Description](https://meta.stackexchange.com/a/2678)
 
 Let's update our query to only include questions:
 
-```{sql eval=FALSE}
+
+
+```{sql,eval=FALSE}
 SELECT TOP(100)
 Id, Title, Score, Body, Tags
 FROM Posts
@@ -241,7 +243,7 @@ The SQL command `WHERE` is like the `filter` command we have been using in `dply
 **Exercise:** Find the title and score of Posts that have a score of at least 110.
 *Hint: TOP is not necessary here because you want all result rows.*
 
-```{sql eval=FALSE}
+```{sql, eval=FALSE}
 SELECT Title, Score
 FROM Posts
 WHERE PostTypeId = 1 AND Score >= 110
@@ -250,10 +252,10 @@ WHERE PostTypeId = 1 AND Score >= 110
 **Exercise:** Find posts whose title contains some place you are interested in (you pick!).
 *Hint: use SQL's [LIKE operator](http://www.sqltutorial.org/sql-like/).*
 
-```{sql eval=TRUE}
+```{sql, eval=TRUE}
 SELECT Title, Score
 FROM Posts
-WHERE PostTypeId = 1 AND Title LIKE '%Minnesota%'
+WHERE PostTypeId = 1 AND Title LIKE '%Paris%'
 ```
 
 Note that you can look up the actual webpage for any question using its `Id`.
@@ -267,7 +269,7 @@ It's unclear how the 100 questions we saw were selected from among the over 43,0
 
 Let's try to arrange the Posts by score.
 
-```{sql eval=FALSE}
+```{sql, eval=FALSE}
 SELECT TOP(100)
 Id, Title, Score, Body, Tags
 FROM Posts
@@ -280,7 +282,7 @@ You can leave off the `DESC` if you want the results ordered smallest to largest
 
 We could also find the [highest rated questions tagged "italy"](https://travel.stackexchange.com/questions/tagged/italy):
 
-```{sql eval=FALSE}
+```{sql, eval=FALSE}
 SELECT TOP(100)
 Id, Title, Score, Body, Tags
 FROM Posts
@@ -291,7 +293,9 @@ ORDER BY Score DESC
 **Exercise:** Pick two tags that interest you and you think will occur together and find the top voted posts that contain both.
 
 ```{sql eval=FALSE}
-
+SELECT Title, Score, Tags
+FROM Posts
+WHERE PostTypeId = 1 AND Tags LIKE '%paris%' AND Tags LIKE '%france%'
 ```
 
 ### SQL Summarization
@@ -302,7 +306,7 @@ Let's take a look at grouping and summarizing now, which has similar structures 
 Imagine we want to see how many posts of each type there are.
 This query shows us that there are 44K questions and 71K answers.
 
-```{sql eval=FALSE}
+```{sql, eval=FALSE}
 SELECT 
 PostTypeId, COUNT(Id) numPosts
 FROM posts
@@ -319,8 +323,24 @@ Note two characteristics of SQL summarization here:
 **Exercise:** Change the previous query so it orders the result rows by the number of posts of that type.
 *Hint: Reuse the name you assigned to the aggregate function.*
 
+```{sql, eval=FALSE}
+SELECT 
+PostTypeId, COUNT(Id) numPosts
+FROM posts
+GROUP BY PostTypeId 
+ORDER BY numPosts
+```
+
 **Exercise:** Find the most commonly used tagsets (sets/combinations of tags) applied to posts.
 Note that this is not asking you to count the most common individual tags --- this would be more complex because multiple tags are squashed into the Tags field.
+
+```{sql, eval=FALSE}
+SELECT
+Tags, COUNT(Tags) numTagsets
+FROM posts
+GROUP BY Tags
+ORDER BY numTagsets
+```
 
 ### SQL Joins
 
@@ -331,7 +351,7 @@ Most commonly we want to perform an INNER join, which is the default if you just
 
 Let's say we wanted to enhance the earlier query to find the highest scoring answers with some information about each user.
 
-```{sql eval=FALSE}
+```{sql, eval=FALSE}
 SELECT TOP(100)
 Title, Score, DisplayName, Reputation
 FROM Posts p
@@ -348,6 +368,15 @@ We see a few notable items here:
 -   We need to specify the relationship that joins the two tables. In this case, a posts `OwnerUserId` column refers to the `Id` column in the users table.
 
 **Exercise:** Create a query similar to the one above that identifies the authors of the top rated comments instead of posts.
+
+```{sql, eval = FALSE}
+SELECT TOP(100)
+Text, Score, DisplayName, Reputation, AboutMe, Views, UpVotes, DownVotes
+FROM Comments c
+JOIN Users u
+ON c.UserId = u.Id
+ORDER BY Score Desc
+```
 
 If you want more practice, go to <https://mystery.knightlab.com/>.
 

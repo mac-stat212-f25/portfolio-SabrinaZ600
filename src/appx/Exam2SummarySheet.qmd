@@ -1,0 +1,471 @@
+# ---
+
+## title: "Exam 2 Summary Sheet"
+
+# 1. Missing Data
+
+#### **Explicit missing data**: `NA`.
+
+1.  **Drop** the cases or rows with any missing data from the analysis
+2.  **Create** a category for missing values.
+3.  **Impute** (or fill in values for) the missing data using imputation algorithms.
+
+#### **Implicit missing data** is data that is missing but not explicitly marked as such. (eg. entire row missing)
+
+**Make implicit missingness explicit** before we can work with the data.
+
+-   If a combination is missing, you can create a new row with explicit missing values.
+    -   `complete()`
+
+## Missing Data Mechanisms
+
+-   **Missing completely at random (MCAR)**:
+    -   The probability of missing data for a variable is the same for all cases. Implies that causes of the missing data are unrelated to the data.
+
+<!-- -->
+
+-   **Missing at random (MAR):**
+    -   The probability of missing data is related to **observed** variables but unrelated to unobserved information.
+
+<!-- -->
+
+-   **Missing not at random (MNAR):**
+    -   The probability of missing data is related to **unobserved** variables (and probably observed variables too).
+
+**Explore Missingness:**
+
+```{r, eval=FALSE}
+naniar::vis_miss() 
+
+naniar::miss_var_summary()
+```
+
+**Simulate Missing Data:**
+
+Single Inputation
+
+```{r, eval=FALSE}
+rnorm(n, mean, sd) #generates random numbers from a normal (or Gaussian) distribution
+rbinom(n, size, prob) #used to generate random numbers from a binomial distribution
+```
+
+multiple Inputation
+
+```{r, eval=FALSE}
+mice() #Multivariate Imputation by Chained Equations (MICE)
+```
+
+# 2. Function
+
+## **Define Function**
+
+```{r, eval=FALSE}
+function_name <- function(input_name_1, input_name_2 = default_value_2){
+
+  # function body - code that does something
+
+  return(output)
+}
+
+# Calling a function (all valid ways)
+function_name(input_name_1 = 2, input_name_2 = 4)
+function_name(2, 4)
+function_name(input_name_2 = 4, input_name_1 = 2)
+function_name(2)
+```
+
+The core parts of defining a function include:
+
+-   **`function()` directive**
+-   **Arguments/Inputs**
+-   **Function body**
+    -   The code inside the curly braces `{ }`
+-   **Return value**
+
+<!-- -->
+
+-   If we don't provide a `return()`, the last value that gets evaluated in the **function body** and isn't stored as an object is what the function returns.
+
+## Scope
+
+The area of a program where a named object is recognized and can be used
+
+**Lexical scope:** The scope of a variable is determined by where it is created in the code
+
+-   When code refers to an object (e.g. data set, function, vector, etc.), R looks for the object in the current, **local environment**.
+-   **parent environment** –\> **global environment –\> loaded packages**
+
+## Tips of Writing Function
+
+-   **Body of the function** (the task that you are wanting to repeat)
+-   **Identify the parts of the function that could/would change** (these are the **inputs**)
+    -   Update the body of the function to be in terms of the inputs
+    -   Avoid manually typing anything that is specific to one input; use code to get that (such as unique values of a variable)
+-   **Identify the output you want to return**
+
+## The `if-else if-else` Control Structure
+
+```{r, eval=FALSE}
+if (logical_condition) {
+    # some code
+} else if (other_logical_condition) {
+    # some code
+} else {
+    # some code
+}
+```
+
+::: {.callout-tip title="To vectorize or not to vectorize"}
+The `if () else {}` code is not **vectorized**; the logical condition in `if()` cannot be a logical vector of length longer than 1.
+:::
+
+# 3. Base R
+
+## Common R Object Structures
+
+**Vector**: A vector is a **collection of elements** of the **same type** (e.g., numeric, integer, character, logical).
+
+**List**: A list is a collection of elements (e.g., vectors, matrices, data frames, other lists).
+
+-   A list can have different types of elements.
+-   A list can have names for its elements.
+
+**Array**: An array is a **vector** with a dimension attribute.
+
+-   Like a vector, an array can only have one type of data (e.g., numeric, character).
+
+**Matrix**: A matrix is an **array** with only 2 dimensions (rows, columns).
+
+-   Like a vector, a matrix can only have one type of data (e.g., numeric, character).
+
+**Data Frame/tibble**: A data frame is a named **list** with **elements** of equal length.
+
+-   Each element is a "column" in the data frame.
+-   The columns can be of different types (e.g., character, numeric, logical, lists, etc.).
+-   Data frames are the most common way to store data in R.
+-   [Tibbles do less and complain more than base data.frames](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+
+## Base R Subsetting
+
+### Selecting elements with `[]`
+
+1.  **A vector of positive integers** (vectors; lists)
+2.  **A vector of negative integers**.
+
+```{r, eval=FALSE}
+x[c(-1, -3, -5)]
+# -1指的是正数第二个index
+```
+
+3.  **A logical vector**. (`filter()` removes instances of missing values by default.)
+
+```{r, eval=FALSE}
+y <- list(a = 1:3, b = c("a", "b", "c"), c = matrix(1:6, nrow = 2))
+y[y |> map_lgl(~ is.numeric(.x))]
+```
+
+4.  **A character vector**
+
+    ```{r, eval=FALSE}
+    # Named Vector
+    x <- c(abc = 1, def = 2, xyz = 5)
+    x[c("xyz", "def")]
+    x[c("xyz","xyz","xyz", "def")]
+
+    #Named List
+    y[c('a','a','c')]
+    # indicating indexes
+    ```
+
+## Subsetting Matricies and Data Frames with `[ ]`
+
+```{r,eval=FALSE}
+m <- matrix(1:12, nrow = 3, ncol = 4)
+m
+
+m[1:5] # Matrix = vector (down the columns) with dimensions
+```
+
+```{r,eval=FALSE}
+m[1,] # Get 1st row
+m[,1] # Get 1st column
+m[1,3] # Get 1st row and 3rd column
+m[-1,] # Get all rows except 1st
+m[c(TRUE, FALSE, FALSE),] # Get the 1st row via a logical
+```
+
+## Selecting a single element with `$` and `[[`
+
+```{r, eval = FALSE}
+mtcars
+mtcars$mpg
+mtcars[["mpg"]]
+mtcars |> pull(mpg)
+```
+
+## Debugging Strategies
+
+-   `print()` and `cat()` to print out intermediate results and messages within a function.
+    -   Examples: `print(x)`, `cat("The value of x is", x, "\n")`
+-   `browser()` to pause the function at a certain point and interactively explore the environment.
+-   `try()` to catch errors and print out a message when an error occurs.
+-   Include `if else` statements within a function to ensure that you are passing the right type of input to a function. You can create you own custom error message with `stop()`
+
+# 4. Iteration
+
+## For Loop
+
+```{r for_syntax, eval = FALSE}
+#| eval: false
+
+for (i in some_vector) {
+    # Code to do stuff based on i
+}
+```
+
+`some_vector` can be **any** vector, including:
+
+-   An **indexing** integer vector: `1:3` \[Most common!\]
+
+-   A character vector: `c("group1", "group2", "group3")`
+
+-   A vector of any other class
+
+-   **Index vector function**
+
+    `seq_along(v)`: generates an integer sequence from 1 to the length of the vector `v` supplied
+
+    `seq_len(n)`: generates an integer sequence from 1 to `n`
+
+**vector(): create storage containers**
+
+## **Across()**
+
+`dplyr` provides the `across()` function for performing these repeated function calls
+
+```{r with_across, eval = FALSE}
+# Option 1: Create our own named function
+round_to_one <- function(x) {
+    round(x, digits = 1)
+}
+diamonds |> 
+    mutate(across(.cols = c(carat, x, y, z), .fns = round_to_one))
+```
+
+```{r, eval = FALSE}
+diamonds |> 
+    mutate(across(.cols = c(carat, x, y, z), .fns = function(x) {round(x, digits = 1)} ))
+```
+
+**arguments** in a custom model-fitting function:
+
+-   `impute`: TRUE or FALSE
+-   `filter_to`: This could be a string description like "All cases", "Group 1", or "Groups 1 and 2"
+
+`crossing()` ：useful for generating argument combinations.
+
+## Iteration with `purrr`
+
+-   Improved readability of R code
+-   `for (i in ...)`
+-   storage containers `vector()`
+-   `purrr::map()`
+-   `results4 <- bench::mark(seq(1,1e5))`Standard R
+
+## Iteration with `map`
+
+-   `map()` can **iterate over columns of a dataset**.
+-   `map()` returns a list
+-   `map_chr()` returns a character vector
+-   `map_lgl()` returns a logical vector
+-   `map_int()` returns an integer vector
+-   `map_dbl()` returns a numeric vector
+-   `map_vec()` returns a vector of a different (non-atomic) type (like dates)
+
+## Iteration with `map2` or `pmap`
+
+`unnest()`
+
+## Iteration with `walk`
+
+`walk()` functions (`walk`, `walk2`, and `pwalk`) to apply a function to each element of a list or vector with **no output.**
+
+# 5. API
+
+## JSON Files
+
+-   [`{}`](https://rdrr.io/r/base/Paren.html) enclose an object
+
+-   Key(string) -value(can be string, number, boolean, array, or another object) pairs
+
+-   Colon `:` separates the key from the value.
+
+-   Comma `,` separates different key-value pairs within the object.
+
+-   Square brackets `[]` enclose an array, which is an ordered list of values.
+
+-   Double quotes used to surround the key and any string value.
+
+    ## **Reading JSON Files**
+
+    -   fromJSON( ): **converts JSON characters to R objects** (A named list (but elements are not all of the same length).
+
+    -   If we don't try to simplify, fromJSON() **provides a list**
+
+    ```{r, eval = FALSE}
+    fromJSON(json, simplifyVector = FALSE)  
+    ```
+
+    -   If it is an array that satisfies the constraints of a data frame, it may be able to simplify to **data frame**
+
+```{r, eval = FALSE}
+fromJSON(json, simplifyVector = TRUE)
+```
+
+## API Definition
+
+**API**: **Application Programming Interface** – a general class of tools that allows computer software to interact with an organization's data.
+
+-   *Application*: software.
+-   *Interface*: a contract of service between two applications. This contract defines how the two communicate with each other **using requests and responses.**
+
+**Every API** has documentation for how software developers should structure requests for data / information and in what format to expect responses.
+
+## Web APIs
+
+[Web APIs](https://en.wikipedia.org/wiki/Web_API), which focus on **transmitting requests and responses for raw data through a web browser**.
+
+-   Our browsers **communicate** with web servers using a technology called [**HTTP**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or Hypertext Transfer Protocol.
+-   Programming languages such as R can also use HTTP to **communicate with web servers**.
+
+### URL
+
+Every document on the Web has **a unique address.**
+
+Same General Structure:
+
+`https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&for=state:*`
+
+**base URL**
+
+**scheme**
+
+**hostname** or **host address**
+
+**file path**
+
+-   This is a string of key-value pairs separated by `&`
+
+## Wrapper packages
+
+In R, it is easiest to access Web APIs through a **wrapper package**, an R package written specifically for a particular Web API.
+
+eg.
+tidycensus get_acs()
+
+## Accessing web APIs directly
+
+### Getting a Census API key
+
+### Navigating API documentation
+
+eg.
+https://api.census.gov/data/2019/acs/acs1?g
+et=NAME,B02015_009E,B02015_009M&for=state:\*
+
+-   we can adjust the **path** to change desired dataset (acs1) and year
+-   we can adjust the **query string** to get different variables (`get`) and for different states (`for`)
+
+### Building a URL with `httr2`
+
+Build up a full URL from its parts
+
+-   `request()` creates an API request object using the **base URL**
+-   `req_url_path_append()` builds up the URL by adding path components separated by `/`
+-   `req_url_query()` adds the `?` separating the endpoint from the query and sets the key-value pairs in the query
+    -   The `.multi` argument controls how multiple values for a given key are combined.
+    -   The `I()` function around `"state:*"` inhibits parsing of special characters like `:` and `*`. (It's known as the "as-is" function.)
+    -   The backticks around `for` are needed because `for` is a reserved word in R (for for-loops). You'll need backticks whenever the key name has special characters (like spaces, dashes).
+    -   We can see from [here](https://www.census.gov/data/developers/guidance/api-user-guide.Help_&_Contact_Us.html) that providing an API key is achieved with `key=YOUR_API_KEY`.
+
+### Sending a request with `httr2`{.unnumbered}
+
+`req_perform()` to send out the API request and get a **response**.
+
+### Getting a response with `httr2`
+
+-   `resp_body_json()` in `httr2` to parse the JSON into a nicer R format.
+
+## More API Examples
+
+### Board Game Geek & XML Data
+
+When we use `req_perform()`, `Content-Type`: XML. We can navigate to the request URL to see the structure of this output.
+
+-   XML (Extensible Markup Language) is a tree structure of named nodes and attributes.
+-   We can use `resp_body_xml()` to read in the XML as an R object.
+
+The key navigation and extraction functions in `xml2` are:
+
+-   `xml_children()`: Get nodes that are nested inside
+    -   Like getting the first level bullet points inside a given bullet point
+-   `xml_find_all()`: Finds nodes matching an XPath expression (XPath stands for XML path)
+    -   XPath expressions are like string regular expressions for XML trees
+    -   See [here](https://www.w3schools.com/xml/xpath_intro.asp) for a deeper dive into XPath
+-   `xml_attr()`: Selects the value of an attribute (the information to the right of the `=` in quotes)
+    -   `<node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2">`
+
+# 6. Web Scraping
+
+The use of code to **extract information displayed on a web page**
+
+In R, the `rvest` package offers tools for scraping.
+
+## HTML structure
+
+-   **Elements** which consist of a start tag (e.g. `<tag>`) and end with an end tag (e.g. `</tag>`)
+-   Optional **attributes** (`id='first'`) within the start tag
+-   **Contents** of an element
+-   Each element can have a **class** attribute and/or an **id** attribute.
+
+## Finding CSS Selectors
+
+We will identify data in a web page using a pattern matching language called [CSS Selectors](https://css-tricks.com/how-css-selectors-work/) that can refer to specific patterns in HTML, the language used to write web pages.
+
+-   Selecting by element/tag type
+
+-   Selecting by class and ID
+
+-   you can learn how to use CSS Selectors by hand ([CSS Selectors](https://css-tricks.com/how-css-selectors-work/))
+
+# 7. DataBase
+
+DataWarehouse: Base on **Relational** **(SQL) databases**
+
+## Connecting to a database in R with `DBI`
+
+The `DBI` package (**d**ata**b**ase **i**nterface) provides general tools for interacting with databases from R.
+
+-   `DBI`: connect with an **in-process** database (`duckdb`), one that runs locally on your computer.
+
+-   `duckdb_read_csv()`: store data directly into the `duckdb` database without first having to read it into R.
+
+-   Set up a database connection with `dbConnect()` and initialize a temporary database with `duckdb()`:
+
+    `{library(tidyverse)} library(DBI) library(duckdb) con <- DBI::dbConnect(duckdb::duckdb()) class(con)`
+
+## SQL
+
+a programming language to query or retrieve data from a relational database
+
+### SQL with `dplyr`
+
+**show_query():** translate from r to sql
+
+**clauses:** `SELECT`, `FROM`, `WHERE`, `GROUP BY`, and `ORDER BY`
+
+## SQL Practice
+
+### Stack Exchange Data Explorer
+
+provides a SQL interface for all the data in StackExchange.
