@@ -354,16 +354,6 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/tt/2025-07-08.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">TidyTuesday Sample 1</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/tt/2025-07-15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">TidyTuesday Sample 2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../src/tt/hw01-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 01</span></a>
   </div>
 </li>
@@ -433,6 +423,11 @@ cookieconsent.run({
   <a href="../../src/ica/12-iteration-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 Loops+Iter P2</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/14-apis-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14 APIs P2</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -446,17 +441,7 @@ cookieconsent.run({
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../src/appx/appx-sample1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix Sample 1</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../src/appx/appx-sample2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Appendix Sample 2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../mm/mm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mind Maps</span></a>
+  <a href="../../src/appx/Exam2SummarySheet.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">—</span></a>
   </div>
 </li>
       </ul>
@@ -710,7 +695,7 @@ NULL</code></pre>
 <pre><code># A tibble: 1 × 6
   expression                             min median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt;                          &lt;bch:&gt; &lt;bch:&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 for (i in 1:1e+05) { x &lt;- c(x, i) }    30s    30s    0.0333    18.6GB     41.9</code></pre>
+1 for (i in 1:1e+05) { x &lt;- c(x, i) }    29s    29s    0.0345    18.6GB     43.4</code></pre>
 </div>
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Example 2: Using a storage container!</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="co">#Notice median (time to run), mem_alloc (how much memory you are using), and gc (garbage collection)</span></span>
@@ -724,7 +709,7 @@ NULL</code></pre>
 <pre><code># A tibble: 1 × 6
   expression                            min  median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt;                       &lt;bch:tm&gt; &lt;bch:t&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 for (i in 1:1e+05) { x[i] &lt;- i }   4.52ms  4.72ms      209.     402KB     2.03</code></pre>
+1 for (i in 1:1e+05) { x[i] &lt;- i }   4.49ms  4.63ms      217.     402KB     2.02</code></pre>
 </div>
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Example 3: Vectorized function</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="co">#Notice median (time to run), mem_alloc (how much memory you are using), and gc (garbage collection)</span></span>
@@ -735,7 +720,7 @@ NULL</code></pre>
 <pre><code># A tibble: 1 × 6
   expression                      min   median `itr/sec` mem_alloc `gc/sec`
   &lt;bch:expr&gt;                 &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;
-1 x &lt;- seq(1, 1e+05, by = 1)    516µs    655µs     1506.    1.91MB     48.2</code></pre>
+1 x &lt;- seq(1, 1e+05, by = 1)    509µs    626µs     1606.    1.91MB     44.3</code></pre>
 </div>
 </div>
 </section></section><section id="exercises" class="level2"><h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
@@ -925,20 +910,20 @@ NULL</code></pre>
 <pre><code>$mean
 function (x, ...) 
 UseMethod("mean")
-&lt;bytecode: 0x11024c858&gt;
+&lt;bytecode: 0x129156e58&gt;
 &lt;environment: namespace:base&gt;
 
 $med
 function (x, na.rm = FALSE, ...) 
 UseMethod("median")
-&lt;bytecode: 0x1226dbd40&gt;
+&lt;bytecode: 0x109aba340&gt;
 &lt;environment: namespace:stats&gt;
 
 $sd
 function (x, na.rm = FALSE) 
 sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
     na.rm = na.rm))
-&lt;bytecode: 0x117991b70&gt;
+&lt;bytecode: 0x10cca96b0&gt;
 &lt;environment: namespace:stats&gt;</code></pre>
 </div>
 <details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">str</span>(list_of_fcts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

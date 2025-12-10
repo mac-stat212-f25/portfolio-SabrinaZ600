@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Appendix A — — – COMP/STAT212 Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../src/ica/14-apis-2-notes.html" rel="prev">
+<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5c3a6d2a25238f373e9093014fa3b5df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-988ea1941520f085a68ecd70cc215186.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-5c3a6d2a25238f373e9093014fa3b5df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
+</script><style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="../../style/custom.css">
+</head>
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/Exam2SummarySheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/Exam2SummarySheet.html"><span class="chapter-title">—</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../assets/sidebar-logo.png" alt="Random negative space illustration" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Shurui Zhang</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Prof Viz</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/pv/pv-01.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Professional Viz Sample</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">TidyTuesday</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/tt/hw01-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/tt/hw02-tt.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Homework 02</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">In-Class Activities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/ica-introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cleaning SFO Weather Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/03-adv-ggplot-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 Advanced Data Viz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/04_adv_maps/code/04-adv-maps-1-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 Advanced Spatial Viz P1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/06-wrangling-1-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">6 Adv Data wrangling P1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/07-wrangling-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">7 Adv Data wrangling P2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/08-missing-data-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">8 Missing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/09-functions-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">9 Functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/10-base-r-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">10 Base R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/11-iteration-1-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">11 Loops+Iter P1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/12-iteration-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">12 Loops+Iter P2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/14-apis-2-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">14 APIs P2</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/appx/Exam2SummarySheet.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">—</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#title-exam-2-summary-sheet" id="toc-title-exam-2-summary-sheet" class="nav-link active" data-scroll-target="#title-exam-2-summary-sheet">title: “Exam 2 Summary Sheet”</a></li>
+  <li>
+<a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">1. Missing Data</a>
+  <ul class="collapse">
+<li><a href="#missing-data-mechanisms" id="toc-missing-data-mechanisms" class="nav-link" data-scroll-target="#missing-data-mechanisms">Missing Data Mechanisms</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#function" id="toc-function" class="nav-link" data-scroll-target="#function">2. Function</a>
+  <ul class="collapse">
+<li><a href="#define-function" id="toc-define-function" class="nav-link" data-scroll-target="#define-function"><strong>Define Function</strong></a></li>
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
+  <li><a href="#tips-of-writing-function" id="toc-tips-of-writing-function" class="nav-link" data-scroll-target="#tips-of-writing-function">Tips of Writing Function</a></li>
+  <li><a href="#the-if-else-if-else-control-structure" id="toc-the-if-else-if-else-control-structure" class="nav-link" data-scroll-target="#the-if-else-if-else-control-structure">The <code>if-else if-else</code> Control Structure</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#base-r" id="toc-base-r" class="nav-link" data-scroll-target="#base-r">3. Base R</a>
+  <ul class="collapse">
+<li><a href="#common-r-object-structures" id="toc-common-r-object-structures" class="nav-link" data-scroll-target="#common-r-object-structures">Common R Object Structures</a></li>
+  <li>
+<a href="#base-r-subsetting" id="toc-base-r-subsetting" class="nav-link" data-scroll-target="#base-r-subsetting">Base R Subsetting</a>
+  <ul class="collapse">
+<li><a href="#selecting-elements-with" id="toc-selecting-elements-with" class="nav-link" data-scroll-target="#selecting-elements-with">Selecting elements with <code>[]</code></a></li>
+  </ul>
+</li>
+  <li><a href="#subsetting-matricies-and-data-frames-with" id="toc-subsetting-matricies-and-data-frames-with" class="nav-link" data-scroll-target="#subsetting-matricies-and-data-frames-with">Subsetting Matricies and Data Frames with <code>[ ]</code></a></li>
+  <li><a href="#selecting-a-single-element-with-and" id="toc-selecting-a-single-element-with-and" class="nav-link" data-scroll-target="#selecting-a-single-element-with-and">Selecting a single element with <code>$</code> and <code>[[</code></a></li>
+  <li><a href="#debugging-strategies" id="toc-debugging-strategies" class="nav-link" data-scroll-target="#debugging-strategies">Debugging Strategies</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration">4. Iteration</a>
+  <ul class="collapse">
+<li><a href="#for-loop" id="toc-for-loop" class="nav-link" data-scroll-target="#for-loop">For Loop</a></li>
+  <li><a href="#across" id="toc-across" class="nav-link" data-scroll-target="#across"><strong>Across()</strong></a></li>
+  <li><a href="#iteration-with-purrr" id="toc-iteration-with-purrr" class="nav-link" data-scroll-target="#iteration-with-purrr">Iteration with <code>purrr</code></a></li>
+  <li><a href="#iteration-with-map" id="toc-iteration-with-map" class="nav-link" data-scroll-target="#iteration-with-map">Iteration with <code>map</code></a></li>
+  <li><a href="#iteration-with-map2-or-pmap" id="toc-iteration-with-map2-or-pmap" class="nav-link" data-scroll-target="#iteration-with-map2-or-pmap">Iteration with <code>map2</code> or <code>pmap</code></a></li>
+  <li><a href="#iteration-with-walk" id="toc-iteration-with-walk" class="nav-link" data-scroll-target="#iteration-with-walk">Iteration with <code>walk</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#api" id="toc-api" class="nav-link" data-scroll-target="#api">5. API</a>
+  <ul class="collapse">
+<li><a href="#json-files" id="toc-json-files" class="nav-link" data-scroll-target="#json-files">JSON Files</a></li>
+  <li><a href="#api-definition" id="toc-api-definition" class="nav-link" data-scroll-target="#api-definition">API Definition</a></li>
+  <li>
+<a href="#web-apis" id="toc-web-apis" class="nav-link" data-scroll-target="#web-apis">Web APIs</a>
+  <ul class="collapse">
+<li><a href="#url" id="toc-url" class="nav-link" data-scroll-target="#url">URL</a></li>
+  </ul>
+</li>
+  <li><a href="#wrapper-packages" id="toc-wrapper-packages" class="nav-link" data-scroll-target="#wrapper-packages">Wrapper packages</a></li>
+  <li>
+<a href="#accessing-web-apis-directly" id="toc-accessing-web-apis-directly" class="nav-link" data-scroll-target="#accessing-web-apis-directly">Accessing web APIs directly</a>
+  <ul class="collapse">
+<li><a href="#getting-a-census-api-key" id="toc-getting-a-census-api-key" class="nav-link" data-scroll-target="#getting-a-census-api-key">Getting a Census API key</a></li>
+  <li><a href="#navigating-api-documentation" id="toc-navigating-api-documentation" class="nav-link" data-scroll-target="#navigating-api-documentation">Navigating API documentation</a></li>
+  <li><a href="#building-a-url-with-httr2" id="toc-building-a-url-with-httr2" class="nav-link" data-scroll-target="#building-a-url-with-httr2">Building a URL with <code>httr2</code></a></li>
+  <li><a href="#sending-a-request-with-httr2" id="toc-sending-a-request-with-httr2" class="nav-link" data-scroll-target="#sending-a-request-with-httr2">Sending a request with <code class="unnumbered">httr2</code></a></li>
+  <li><a href="#getting-a-response-with-httr2" id="toc-getting-a-response-with-httr2" class="nav-link" data-scroll-target="#getting-a-response-with-httr2">Getting a response with <code>httr2</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#more-api-examples" id="toc-more-api-examples" class="nav-link" data-scroll-target="#more-api-examples">More API Examples</a>
+  <ul class="collapse">
+<li><a href="#board-game-geek-xml-data" id="toc-board-game-geek-xml-data" class="nav-link" data-scroll-target="#board-game-geek-xml-data">Board Game Geek &amp; XML Data</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  <li>
+<a href="#database" id="toc-database" class="nav-link" data-scroll-target="#database">7. DataBase</a>
+  <ul class="collapse">
+<li><a href="#connecting-to-a-database-in-r-with-dbi" id="toc-connecting-to-a-database-in-r-with-dbi" class="nav-link" data-scroll-target="#connecting-to-a-database-in-r-with-dbi">Connecting to a database in R with <code>DBI</code></a></li>
+  <li>
+<a href="#sql" id="toc-sql" class="nav-link" data-scroll-target="#sql">SQL</a>
+  <ul class="collapse">
+<li><a href="#sql-with-dplyr" id="toc-sql-with-dplyr" class="nav-link" data-scroll-target="#sql-with-dplyr">SQL with <code>dplyr</code></a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../src/appx/Exam2SummarySheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="../../src/appx/Exam2SummarySheet.html"><span class="chapter-title">—</span></a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Appendix A — —</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="title-exam-2-summary-sheet" class="level2"><h2 class="anchored" data-anchor-id="title-exam-2-summary-sheet">title: “Exam 2 Summary Sheet”</h2>
+</section><section id="missing-data" class="level1"><h1>1. Missing Data</h1>
+<section id="explicit-missing-data-na." class="level4"><h4 class="anchored" data-anchor-id="explicit-missing-data-na.">
+<strong>Explicit missing data</strong>: <code>NA</code>.</h4>
+<ol type="1">
+<li>
+<strong>Drop</strong> the cases or rows with any missing data from the analysis</li>
+<li>
+<strong>Create</strong> a category for missing values.</li>
+<li>
+<strong>Impute</strong> (or fill in values for) the missing data using imputation algorithms.</li>
+</ol></section><section id="implicit-missing-data-is-data-that-is-missing-but-not-explicitly-marked-as-such.-eg.-entire-row-missing" class="level4"><h4 class="anchored" data-anchor-id="implicit-missing-data-is-data-that-is-missing-but-not-explicitly-marked-as-such.-eg.-entire-row-missing">
+<strong>Implicit missing data</strong> is data that is missing but not explicitly marked as such. (eg. entire row missing)</h4>
+<p><strong>Make implicit missingness explicit</strong> before we can work with the data.</p>
+<ul>
+<li>If a combination is missing, you can create a new row with explicit missing values.
+<ul>
+<li><code>complete()</code></li>
+</ul>
+</li>
+</ul></section><section id="missing-data-mechanisms" class="level2"><h2 class="anchored" data-anchor-id="missing-data-mechanisms">Missing Data Mechanisms</h2>
+<ul>
+<li>
+<strong>Missing completely at random (MCAR)</strong>:
+<ul>
+<li>The probability of missing data for a variable is the same for all cases. Implies that causes of the missing data are unrelated to the data.</li>
+</ul>
+</li>
+</ul>
+<!-- --><ul>
+<li>
+<strong>Missing at random (MAR):</strong>
+<ul>
+<li>The probability of missing data is related to <strong>observed</strong> variables but unrelated to unobserved information.</li>
+</ul>
+</li>
+</ul>
+<!-- --><ul>
+<li>
+<strong>Missing not at random (MNAR):</strong>
+<ul>
+<li>The probability of missing data is related to <strong>unobserved</strong> variables (and probably observed variables too).</li>
+</ul>
+</li>
+</ul>
+<p><strong>Explore Missingness:</strong></p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>() </span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>naniar<span class="sc">::</span><span class="fu">miss_var_summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Simulate Missing Data:</strong></p>
+<p>Single Inputation</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">rnorm</span>(n, mean, sd) <span class="co">#generates random numbers from a normal (or Gaussian) distribution</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">rbinom</span>(n, size, prob) <span class="co">#used to generate random numbers from a binomial distribution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>multiple Inputation</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">mice</span>() <span class="co">#Multivariate Imputation by Chained Equations (MICE)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section></section><section id="function" class="level1"><h1>2. Function</h1>
+<section id="define-function" class="level2"><h2 class="anchored" data-anchor-id="define-function"><strong>Define Function</strong></h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(input_name_1, <span class="at">input_name_2 =</span> default_value_2){</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="co"># function body - code that does something</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>}</span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># Calling a function (all valid ways)</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="fu">function_name</span>(<span class="at">input_name_1 =</span> <span class="dv">2</span>, <span class="at">input_name_2 =</span> <span class="dv">4</span>)</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">function_name</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">function_name</span>(<span class="at">input_name_2 =</span> <span class="dv">4</span>, <span class="at">input_name_1 =</span> <span class="dv">2</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu">function_name</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The core parts of defining a function include:</p>
+<ul>
+<li><strong><code>function()</code> directive</strong></li>
+<li><strong>Arguments/Inputs</strong></li>
+<li>
+<strong>Function body</strong>
+<ul>
+<li>The code inside the curly braces <code><a href="https://rdrr.io/r/base/Paren.html">{ }</a></code>
+</li>
+</ul>
+</li>
+<li><strong>Return value</strong></li>
+</ul>
+<!-- --><ul>
+<li>If we don’t provide a <code><a href="https://rdrr.io/r/base/function.html">return()</a></code>, the last value that gets evaluated in the <strong>function body</strong> and isn’t stored as an object is what the function returns.</li>
+</ul></section><section id="scope" class="level2"><h2 class="anchored" data-anchor-id="scope">Scope</h2>
+<p>The area of a program where a named object is recognized and can be used</p>
+<p><strong>Lexical scope:</strong> The scope of a variable is determined by where it is created in the code</p>
+<ul>
+<li>When code refers to an object (e.g.&nbsp;data set, function, vector, etc.), R looks for the object in the current, <strong>local environment</strong>.</li>
+<li>
+<strong>parent environment</strong> –&gt; <strong>global environment –&gt; loaded packages</strong>
+</li>
+</ul></section><section id="tips-of-writing-function" class="level2"><h2 class="anchored" data-anchor-id="tips-of-writing-function">Tips of Writing Function</h2>
+<ul>
+<li>
+<strong>Body of the function</strong> (the task that you are wanting to repeat)</li>
+<li>
+<strong>Identify the parts of the function that could/would change</strong> (these are the <strong>inputs</strong>)
+<ul>
+<li>Update the body of the function to be in terms of the inputs</li>
+<li>Avoid manually typing anything that is specific to one input; use code to get that (such as unique values of a variable)</li>
+</ul>
+</li>
+<li><strong>Identify the output you want to return</strong></li>
+</ul></section><section id="the-if-else-if-else-control-structure" class="level2"><h2 class="anchored" data-anchor-id="the-if-else-if-else-control-structure">The <code>if-else if-else</code> Control Structure</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="cf">if</span> (logical_condition) {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="co"># some code</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>} <span class="cf">else</span> <span class="cf">if</span> (other_logical_condition) {</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="co"># some code</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>} <span class="cf">else</span> {</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="co"># some code</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="To vectorize or not to vectorize">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+To vectorize or not to vectorize
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>if () else {}</code> code is not <strong>vectorized</strong>; the logical condition in <code>if()</code> cannot be a logical vector of length longer than 1.</p>
+</div>
+</div>
+</section></section><section id="base-r" class="level1"><h1>3. Base R</h1>
+<section id="common-r-object-structures" class="level2"><h2 class="anchored" data-anchor-id="common-r-object-structures">Common R Object Structures</h2>
+<p><strong>Vector</strong>: A vector is a <strong>collection of elements</strong> of the <strong>same type</strong> (e.g., numeric, integer, character, logical).</p>
+<p><strong>List</strong>: A list is a collection of elements (e.g., vectors, matrices, data frames, other lists).</p>
+<ul>
+<li>A list can have different types of elements.</li>
+<li>A list can have names for its elements.</li>
+</ul>
+<p><strong>Array</strong>: An array is a <strong>vector</strong> with a dimension attribute.</p>
+<ul>
+<li>Like a vector, an array can only have one type of data (e.g., numeric, character).</li>
+</ul>
+<p><strong>Matrix</strong>: A matrix is an <strong>array</strong> with only 2 dimensions (rows, columns).</p>
+<ul>
+<li>Like a vector, a matrix can only have one type of data (e.g., numeric, character).</li>
+</ul>
+<p><strong>Data Frame/tibble</strong>: A data frame is a named <strong>list</strong> with <strong>elements</strong> of equal length.</p>
+<ul>
+<li>Each element is a “column” in the data frame.</li>
+<li>The columns can be of different types (e.g., character, numeric, logical, lists, etc.).</li>
+<li>Data frames are the most common way to store data in R.</li>
+<li><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html">Tibbles do less and complain more than base data.frames</a></li>
+</ul></section><section id="base-r-subsetting" class="level2"><h2 class="anchored" data-anchor-id="base-r-subsetting">Base R Subsetting</h2>
+<section id="selecting-elements-with" class="level3"><h3 class="anchored" data-anchor-id="selecting-elements-with">Selecting elements with <code>[]</code>
+</h3>
+<ol type="1">
+<li>
+<strong>A vector of positive integers</strong> (vectors; lists)</li>
+<li>
+<strong>A vector of negative integers</strong>.</li>
+</ol>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>x[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>)]</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># -1指的是正数第二个index</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="3" type="1">
+<li>
+<strong>A logical vector</strong>. (<code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> removes instances of missing values by default.)</li>
+</ol>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">c =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a>y[y <span class="sc">|&gt;</span> <span class="fu">map_lgl</span>(<span class="sc">~</span> <span class="fu">is.numeric</span>(.x))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ol start="4" type="1">
+<li>
+<p><strong>A character vector</strong></p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Named Vector</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">def =</span> <span class="dv">2</span>, <span class="at">xyz =</span> <span class="dv">5</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>x[<span class="fu">c</span>(<span class="st">"xyz"</span>, <span class="st">"def"</span>)]</span>
+<span id="cb8-4"><a href="#cb8-4"></a>x[<span class="fu">c</span>(<span class="st">"xyz"</span>,<span class="st">"xyz"</span>,<span class="st">"xyz"</span>, <span class="st">"def"</span>)]</span>
+<span id="cb8-5"><a href="#cb8-5"></a></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#Named List</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>y[<span class="fu">c</span>(<span class="st">'a'</span>,<span class="st">'a'</span>,<span class="st">'c'</span>)]</span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co"># indicating indexes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</li>
+</ol></section></section><section id="subsetting-matricies-and-data-frames-with" class="level2"><h2 class="anchored" data-anchor-id="subsetting-matricies-and-data-frames-with">Subsetting Matricies and Data Frames with <code>[ ]</code>
+</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>m</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># Matrix = vector (down the columns) with dimensions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>m[<span class="dv">1</span>,] <span class="co"># Get 1st row</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>m[,<span class="dv">1</span>] <span class="co"># Get 1st column</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>m[<span class="dv">1</span>,<span class="dv">3</span>] <span class="co"># Get 1st row and 3rd column</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>m[<span class="sc">-</span><span class="dv">1</span>,] <span class="co"># Get all rows except 1st</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>m[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>),] <span class="co"># Get the 1st row via a logical</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="selecting-a-single-element-with-and" class="level2"><h2 class="anchored" data-anchor-id="selecting-a-single-element-with-and">Selecting a single element with <code>$</code> and <code>[[</code>
+</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mtcars</span>
+<span id="cb11-2"><a href="#cb11-2"></a>mtcars<span class="sc">$</span>mpg</span>
+<span id="cb11-3"><a href="#cb11-3"></a>mtcars[[<span class="st">"mpg"</span>]]</span>
+<span id="cb11-4"><a href="#cb11-4"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">pull</span>(mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="debugging-strategies" class="level2"><h2 class="anchored" data-anchor-id="debugging-strategies">Debugging Strategies</h2>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/print.html">print()</a></code> and <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> to print out intermediate results and messages within a function.
+<ul>
+<li>Examples: <code>print(x)</code>, <code>cat("The value of x is", x, "\n")</code>
+</li>
+</ul>
+</li>
+<li>
+<code><a href="https://rdrr.io/r/base/browser.html">browser()</a></code> to pause the function at a certain point and interactively explore the environment.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/try.html">try()</a></code> to catch errors and print out a message when an error occurs.</li>
+<li>Include <code>if else</code> statements within a function to ensure that you are passing the right type of input to a function. You can create you own custom error message with <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code>
+</li>
+</ul></section></section><section id="iteration" class="level1"><h1>4. Iteration</h1>
+<section id="for-loop" class="level2"><h2 class="anchored" data-anchor-id="for-loop">For Loop</h2>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="cf">for</span> (i <span class="cf">in</span> some_vector) {</span>
+<span id="cb12-2"><a href="#cb12-2"></a>    <span class="co"># Code to do stuff based on i</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><code>some_vector</code> can be <strong>any</strong> vector, including:</p>
+<ul>
+<li><p>An <strong>indexing</strong> integer vector: <code>1:3</code> [Most common!]</p></li>
+<li><p>A character vector: <code>c("group1", "group2", "group3")</code></p></li>
+<li><p>A vector of any other class</p></li>
+<li>
+<p><strong>Index vector function</strong></p>
+<p><code>seq_along(v)</code>: generates an integer sequence from 1 to the length of the vector <code>v</code> supplied</p>
+<p><code>seq_len(n)</code>: generates an integer sequence from 1 to <code>n</code></p>
+</li>
+</ul>
+<p><strong>vector(): create storage containers</strong></p>
+</section><section id="across" class="level2"><h2 class="anchored" data-anchor-id="across"><strong>Across()</strong></h2>
+<p><code>dplyr</code> provides the <code>across()</code> function for performing these repeated function calls</p>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Option 1: Create our own named function</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>round_to_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a>}</span>
+<span id="cb13-5"><a href="#cb13-5"></a>diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(carat, x, y, z), <span class="at">.fns =</span> round_to_one))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(carat, x, y, z), <span class="at">.fns =</span> <span class="cf">function</span>(x) {<span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">1</span>)} ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>arguments</strong> in a custom model-fitting function:</p>
+<ul>
+<li>
+<code>impute</code>: TRUE or FALSE</li>
+<li>
+<code>filter_to</code>: This could be a string description like “All cases”, “Group 1”, or “Groups 1 and 2”</li>
+</ul>
+<p><code>crossing()</code> ：useful for generating argument combinations.</p>
+</section><section id="iteration-with-purrr" class="level2"><h2 class="anchored" data-anchor-id="iteration-with-purrr">Iteration with <code>purrr</code>
+</h2>
+<ul>
+<li>Improved readability of R code</li>
+<li><code>for (i in ...)</code></li>
+<li>storage containers <code><a href="https://rdrr.io/r/base/vector.html">vector()</a></code>
+</li>
+<li><code><a href="https://purrr.tidyverse.org/reference/map.html">purrr::map()</a></code></li>
+<li>
+<code>results4 &lt;- bench::mark(seq(1,1e5))</code>Standard R</li>
+</ul></section><section id="iteration-with-map" class="level2"><h2 class="anchored" data-anchor-id="iteration-with-map">Iteration with <code>map</code>
+</h2>
+<ul>
+<li>
+<code>map()</code> can <strong>iterate over columns of a dataset</strong>.</li>
+<li>
+<code>map()</code> returns a list</li>
+<li>
+<code>map_chr()</code> returns a character vector</li>
+<li>
+<code>map_lgl()</code> returns a logical vector</li>
+<li>
+<code>map_int()</code> returns an integer vector</li>
+<li>
+<code>map_dbl()</code> returns a numeric vector</li>
+<li>
+<code>map_vec()</code> returns a vector of a different (non-atomic) type (like dates)</li>
+</ul></section><section id="iteration-with-map2-or-pmap" class="level2"><h2 class="anchored" data-anchor-id="iteration-with-map2-or-pmap">Iteration with <code>map2</code> or <code>pmap</code>
+</h2>
+<p><code>unnest()</code></p>
+</section><section id="iteration-with-walk" class="level2"><h2 class="anchored" data-anchor-id="iteration-with-walk">Iteration with <code>walk</code>
+</h2>
+<p><code>walk()</code> functions (<code>walk</code>, <code>walk2</code>, and <code>pwalk</code>) to apply a function to each element of a list or vector with <strong>no output.</strong></p>
+</section></section><section id="api" class="level1"><h1>5. API</h1>
+<section id="json-files" class="level2"><h2 class="anchored" data-anchor-id="json-files">JSON Files</h2>
+<ul>
+<li><p><a href="https://rdrr.io/r/base/Paren.html"><code>{}</code></a> enclose an object</p></li>
+<li><p>Key(string) -value(can be string, number, boolean, array, or another object) pairs</p></li>
+<li><p>Colon <code>:</code> separates the key from the value.</p></li>
+<li><p>Comma <code>,</code> separates different key-value pairs within the object.</p></li>
+<li><p>Square brackets <code>[]</code> enclose an array, which is an ordered list of values.</p></li>
+<li>
+<p>Double quotes used to surround the key and any string value.</p>
+<h2 id="reading-json-files" class="anchored"><strong>Reading JSON Files</strong></h2>
+<ul>
+<li><p>fromJSON( ): <strong>converts JSON characters to R objects</strong> (A named list (but elements are not all of the same length).</p></li>
+<li><p>If we don’t try to simplify, fromJSON() <strong>provides a list</strong></p></li>
+</ul>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">fromJSON</span>(json, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>If it is an array that satisfies the constraints of a data frame, it may be able to simplify to <strong>data frame</strong>
+</li>
+</ul>
+</li>
+</ul>
+<div class="cell">
+<details class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">fromJSON</span>(json, <span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="api-definition" class="level2"><h2 class="anchored" data-anchor-id="api-definition">API Definition</h2>
+<p><strong>API</strong>: <strong>Application Programming Interface</strong> – a general class of tools that allows computer software to interact with an organization’s data.</p>
+<ul>
+<li>
+<em>Application</em>: software.</li>
+<li>
+<em>Interface</em>: a contract of service between two applications. This contract defines how the two communicate with each other <strong>using requests and responses.</strong>
+</li>
+</ul>
+<p><strong>Every API</strong> has documentation for how software developers should structure requests for data / information and in what format to expect responses.</p>
+</section><section id="web-apis" class="level2"><h2 class="anchored" data-anchor-id="web-apis">Web APIs</h2>
+<p><a href="https://en.wikipedia.org/wiki/Web_API">Web APIs</a>, which focus on <strong>transmitting requests and responses for raw data through a web browser</strong>.</p>
+<ul>
+<li>Our browsers <strong>communicate</strong> with web servers using a technology called <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"><strong>HTTP</strong></a> or Hypertext Transfer Protocol.</li>
+<li>Programming languages such as R can also use HTTP to <strong>communicate with web servers</strong>.</li>
+</ul>
+<section id="url" class="level3"><h3 class="anchored" data-anchor-id="url">URL</h3>
+<p>Every document on the Web has <strong>a unique address.</strong></p>
+<p>Same General Structure:</p>
+<p><code>https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*</code></p>
+<p><strong>base URL</strong></p>
+<p><strong>scheme</strong></p>
+<p><strong>hostname</strong> or <strong>host address</strong></p>
+<p><strong>file path</strong></p>
+<ul>
+<li>This is a string of key-value pairs separated by <code>&amp;</code>
+</li>
+</ul></section></section><section id="wrapper-packages" class="level2"><h2 class="anchored" data-anchor-id="wrapper-packages">Wrapper packages</h2>
+<p>In R, it is easiest to access Web APIs through a <strong>wrapper package</strong>, an R package written specifically for a particular Web API.</p>
+<p>eg. tidycensus get_acs()</p>
+</section><section id="accessing-web-apis-directly" class="level2"><h2 class="anchored" data-anchor-id="accessing-web-apis-directly">Accessing web APIs directly</h2>
+<section id="getting-a-census-api-key" class="level3"><h3 class="anchored" data-anchor-id="getting-a-census-api-key">Getting a Census API key</h3>
+</section><section id="navigating-api-documentation" class="level3"><h3 class="anchored" data-anchor-id="navigating-api-documentation">Navigating API documentation</h3>
+<p>eg. https://api.census.gov/data/2019/acs/acs1?g et=NAME,B02015_009E,B02015_009M&amp;for=state:*</p>
+<ul>
+<li>we can adjust the <strong>path</strong> to change desired dataset (acs1) and year</li>
+<li>we can adjust the <strong>query string</strong> to get different variables (<code>get</code>) and for different states (<code>for</code>)</li>
+</ul></section><section id="building-a-url-with-httr2" class="level3"><h3 class="anchored" data-anchor-id="building-a-url-with-httr2">Building a URL with <code>httr2</code>
+</h3>
+<p>Build up a full URL from its parts</p>
+<ul>
+<li>
+<code>request()</code> creates an API request object using the <strong>base URL</strong>
+</li>
+<li>
+<code>req_url_path_append()</code> builds up the URL by adding path components separated by <code>/</code>
+</li>
+<li>
+<code>req_url_query()</code> adds the <code>?</code> separating the endpoint from the query and sets the key-value pairs in the query
+<ul>
+<li>The <code>.multi</code> argument controls how multiple values for a given key are combined.</li>
+<li>The <code><a href="https://rdrr.io/r/base/AsIs.html">I()</a></code> function around <code>"state:*"</code> inhibits parsing of special characters like <code>:</code> and <code>*</code>. (It’s known as the “as-is” function.)</li>
+<li>The backticks around <code>for</code> are needed because <code>for</code> is a reserved word in R (for for-loops). You’ll need backticks whenever the key name has special characters (like spaces, dashes).</li>
+<li>We can see from <a href="https://www.census.gov/data/developers/guidance/api-user-guide.Help_&amp;_Contact_Us.html">here</a> that providing an API key is achieved with <code>key=YOUR_API_KEY</code>.</li>
+</ul>
+</li>
+</ul></section><section id="sending-a-request-with-httr2" class="level3"><h3 class="anchored" data-anchor-id="sending-a-request-with-httr2">Sending a request with <code class="unnumbered">httr2</code>
+</h3>
+<p><code>req_perform()</code> to send out the API request and get a <strong>response</strong>.</p>
+</section><section id="getting-a-response-with-httr2" class="level3"><h3 class="anchored" data-anchor-id="getting-a-response-with-httr2">Getting a response with <code>httr2</code>
+</h3>
+<ul>
+<li>
+<code>resp_body_json()</code> in <code>httr2</code> to parse the JSON into a nicer R format.</li>
+</ul></section></section><section id="more-api-examples" class="level2"><h2 class="anchored" data-anchor-id="more-api-examples">More API Examples</h2>
+<section id="board-game-geek-xml-data" class="level3"><h3 class="anchored" data-anchor-id="board-game-geek-xml-data">Board Game Geek &amp; XML Data</h3>
+<p>When we use <code>req_perform()</code>, <code>Content-Type</code>: XML. We can navigate to the request URL to see the structure of this output.</p>
+<ul>
+<li>XML (Extensible Markup Language) is a tree structure of named nodes and attributes.</li>
+<li>We can use <code>resp_body_xml()</code> to read in the XML as an R object.</li>
+</ul>
+<p>The key navigation and extraction functions in <code>xml2</code> are:</p>
+<ul>
+<li>
+<code>xml_children()</code>: Get nodes that are nested inside
+<ul>
+<li>Like getting the first level bullet points inside a given bullet point</li>
+</ul>
+</li>
+<li>
+<code>xml_find_all()</code>: Finds nodes matching an XPath expression (XPath stands for XML path)
+<ul>
+<li>XPath expressions are like string regular expressions for XML trees</li>
+<li>See <a href="https://www.w3schools.com/xml/xpath_intro.asp">here</a> for a deeper dive into XPath</li>
+</ul>
+</li>
+<li>
+<code>xml_attr()</code>: Selects the value of an attribute (the information to the right of the <code>=</code> in quotes)
+<ul>
+<li><code>&lt;node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2"&gt;</code></li>
+</ul>
+</li>
+</ul></section></section></section><section id="database" class="level1"><h1>7. DataBase</h1>
+<p>DataWarehouse: Base on <strong>Relational</strong> <strong>(SQL) databases</strong></p>
+<section id="connecting-to-a-database-in-r-with-dbi" class="level2"><h2 class="anchored" data-anchor-id="connecting-to-a-database-in-r-with-dbi">Connecting to a database in R with <code>DBI</code>
+</h2>
+<p>The <code>DBI</code> package (<strong>d</strong>ata<strong>b</strong>ase <strong>i</strong>nterface) provides general tools for interacting with databases from R.</p>
+<ul>
+<li><p><code>DBI</code>: connect with an <strong>in-process</strong> database (<code>duckdb</code>), one that runs locally on your computer.</p></li>
+<li><p><code>duckdb_read_csv()</code>: store data directly into the <code>duckdb</code> database without first having to read it into R.</p></li>
+<li>
+<p>Set up a database connection with <code>dbConnect()</code> and initialize a temporary database with <code>duckdb()</code>:</p>
+<p><code>{library(tidyverse)} library(DBI) library(duckdb) con &lt;- DBI::dbConnect(duckdb::duckdb()) class(con)</code></p>
+</li>
+</ul></section><section id="sql" class="level2"><h2 class="anchored" data-anchor-id="sql">SQL</h2>
+<p>a programming language to query or retrieve data from a relational database</p>
+<section id="sql-with-dplyr" class="level3"><h3 class="anchored" data-anchor-id="sql-with-dplyr">SQL with <code>dplyr</code>
+</h3>
+<p><strong>show_query():</strong> translate from r to sql</p>
+<p><strong>clauses:</strong> <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>GROUP BY</code>, and <code>ORDER BY</code></p>
+
+
+<!-- -->
+
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation column-body"><div class="nav-page nav-page-previous">
+      <a href="../../src/ica/14-apis-2-notes.html" class="pagination-link" aria-label="14 APIs P2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">14 APIs P2</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb17" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu"># ---</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">## title: "Exam 2 Summary Sheet"</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="fu"># 1. Missing Data</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="fu">#### **Explicit missing data**: `NA`.</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="ss">1.  </span>**Drop** the cases or rows with any missing data from the analysis</span>
+<span id="cb17-10"><a href="#cb17-10"></a><span class="ss">2.  </span>**Create** a category for missing values.</span>
+<span id="cb17-11"><a href="#cb17-11"></a><span class="ss">3.  </span>**Impute** (or fill in values for) the missing data using imputation algorithms.</span>
+<span id="cb17-12"><a href="#cb17-12"></a></span>
+<span id="cb17-13"><a href="#cb17-13"></a><span class="fu">#### **Implicit missing data** is data that is missing but not explicitly marked as such. (eg. entire row missing)</span></span>
+<span id="cb17-14"><a href="#cb17-14"></a></span>
+<span id="cb17-15"><a href="#cb17-15"></a>**Make implicit missingness explicit** before we can work with the data.</span>
+<span id="cb17-16"><a href="#cb17-16"></a></span>
+<span id="cb17-17"><a href="#cb17-17"></a><span class="ss">-   </span>If a combination is missing, you can create a new row with explicit missing values.</span>
+<span id="cb17-18"><a href="#cb17-18"></a><span class="ss">    -   </span><span class="in">`complete()`</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a></span>
+<span id="cb17-20"><a href="#cb17-20"></a><span class="fu">## Missing Data Mechanisms</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="ss">-   </span>**Missing completely at random (MCAR)**:</span>
+<span id="cb17-23"><a href="#cb17-23"></a><span class="ss">    -   </span>The probability of missing data for a variable is the same for all cases. Implies that causes of the missing data are unrelated to the data.</span>
+<span id="cb17-24"><a href="#cb17-24"></a></span>
+<span id="cb17-25"><a href="#cb17-25"></a><span class="co">&lt;!-- --&gt;</span></span>
+<span id="cb17-26"><a href="#cb17-26"></a></span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="ss">-   </span>**Missing at random (MAR):**</span>
+<span id="cb17-28"><a href="#cb17-28"></a><span class="ss">    -   </span>The probability of missing data is related to **observed** variables but unrelated to unobserved information.</span>
+<span id="cb17-29"><a href="#cb17-29"></a></span>
+<span id="cb17-30"><a href="#cb17-30"></a><span class="co">&lt;!-- --&gt;</span></span>
+<span id="cb17-31"><a href="#cb17-31"></a></span>
+<span id="cb17-32"><a href="#cb17-32"></a><span class="ss">-   </span>**Missing not at random (MNAR):**</span>
+<span id="cb17-33"><a href="#cb17-33"></a><span class="ss">    -   </span>The probability of missing data is related to **unobserved** variables (and probably observed variables too).</span>
+<span id="cb17-34"><a href="#cb17-34"></a></span>
+<span id="cb17-35"><a href="#cb17-35"></a>**Explore Missingness:**</span>
+<span id="cb17-36"><a href="#cb17-36"></a></span>
+<span id="cb17-37"><a href="#cb17-37"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-38"><a href="#cb17-38"></a>naniar<span class="sc">::</span><span class="fu">vis_miss</span>() </span>
+<span id="cb17-39"><a href="#cb17-39"></a></span>
+<span id="cb17-40"><a href="#cb17-40"></a>naniar<span class="sc">::</span><span class="fu">miss_var_summary</span>()</span>
+<span id="cb17-41"><a href="#cb17-41"></a><span class="in">```</span></span>
+<span id="cb17-42"><a href="#cb17-42"></a></span>
+<span id="cb17-43"><a href="#cb17-43"></a>**Simulate Missing Data:**</span>
+<span id="cb17-44"><a href="#cb17-44"></a></span>
+<span id="cb17-45"><a href="#cb17-45"></a>Single Inputation</span>
+<span id="cb17-46"><a href="#cb17-46"></a></span>
+<span id="cb17-47"><a href="#cb17-47"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-48"><a href="#cb17-48"></a><span class="fu">rnorm</span>(n, mean, sd) <span class="co">#generates random numbers from a normal (or Gaussian) distribution</span></span>
+<span id="cb17-49"><a href="#cb17-49"></a><span class="fu">rbinom</span>(n, size, prob) <span class="co">#used to generate random numbers from a binomial distribution</span></span>
+<span id="cb17-50"><a href="#cb17-50"></a><span class="in">```</span></span>
+<span id="cb17-51"><a href="#cb17-51"></a></span>
+<span id="cb17-52"><a href="#cb17-52"></a>multiple Inputation</span>
+<span id="cb17-53"><a href="#cb17-53"></a></span>
+<span id="cb17-54"><a href="#cb17-54"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-55"><a href="#cb17-55"></a><span class="fu">mice</span>() <span class="co">#Multivariate Imputation by Chained Equations (MICE)</span></span>
+<span id="cb17-56"><a href="#cb17-56"></a><span class="in">```</span></span>
+<span id="cb17-57"><a href="#cb17-57"></a></span>
+<span id="cb17-58"><a href="#cb17-58"></a><span class="fu"># 2. Function</span></span>
+<span id="cb17-59"><a href="#cb17-59"></a></span>
+<span id="cb17-60"><a href="#cb17-60"></a><span class="fu">## **Define Function**</span></span>
+<span id="cb17-61"><a href="#cb17-61"></a></span>
+<span id="cb17-62"><a href="#cb17-62"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-63"><a href="#cb17-63"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(input_name_1, <span class="at">input_name_2 =</span> default_value_2){</span>
+<span id="cb17-64"><a href="#cb17-64"></a></span>
+<span id="cb17-65"><a href="#cb17-65"></a>  <span class="co"># function body - code that does something</span></span>
+<span id="cb17-66"><a href="#cb17-66"></a></span>
+<span id="cb17-67"><a href="#cb17-67"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb17-68"><a href="#cb17-68"></a>}</span>
+<span id="cb17-69"><a href="#cb17-69"></a></span>
+<span id="cb17-70"><a href="#cb17-70"></a><span class="co"># Calling a function (all valid ways)</span></span>
+<span id="cb17-71"><a href="#cb17-71"></a><span class="fu">function_name</span>(<span class="at">input_name_1 =</span> <span class="dv">2</span>, <span class="at">input_name_2 =</span> <span class="dv">4</span>)</span>
+<span id="cb17-72"><a href="#cb17-72"></a><span class="fu">function_name</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb17-73"><a href="#cb17-73"></a><span class="fu">function_name</span>(<span class="at">input_name_2 =</span> <span class="dv">4</span>, <span class="at">input_name_1 =</span> <span class="dv">2</span>)</span>
+<span id="cb17-74"><a href="#cb17-74"></a><span class="fu">function_name</span>(<span class="dv">2</span>)</span>
+<span id="cb17-75"><a href="#cb17-75"></a><span class="in">```</span></span>
+<span id="cb17-76"><a href="#cb17-76"></a></span>
+<span id="cb17-77"><a href="#cb17-77"></a>The core parts of defining a function include:</span>
+<span id="cb17-78"><a href="#cb17-78"></a></span>
+<span id="cb17-79"><a href="#cb17-79"></a><span class="ss">-   </span>**`function()` directive**</span>
+<span id="cb17-80"><a href="#cb17-80"></a><span class="ss">-   </span>**Arguments/Inputs**</span>
+<span id="cb17-81"><a href="#cb17-81"></a><span class="ss">-   </span>**Function body**</span>
+<span id="cb17-82"><a href="#cb17-82"></a><span class="ss">    -   </span>The code inside the curly braces <span class="in">`{ }`</span></span>
+<span id="cb17-83"><a href="#cb17-83"></a><span class="ss">-   </span>**Return value**</span>
+<span id="cb17-84"><a href="#cb17-84"></a></span>
+<span id="cb17-85"><a href="#cb17-85"></a><span class="co">&lt;!-- --&gt;</span></span>
+<span id="cb17-86"><a href="#cb17-86"></a></span>
+<span id="cb17-87"><a href="#cb17-87"></a><span class="ss">-   </span>If we don't provide a <span class="in">`return()`</span>, the last value that gets evaluated in the **function body** and isn't stored as an object is what the function returns.</span>
+<span id="cb17-88"><a href="#cb17-88"></a></span>
+<span id="cb17-89"><a href="#cb17-89"></a><span class="fu">## Scope</span></span>
+<span id="cb17-90"><a href="#cb17-90"></a></span>
+<span id="cb17-91"><a href="#cb17-91"></a>The area of a program where a named object is recognized and can be used</span>
+<span id="cb17-92"><a href="#cb17-92"></a></span>
+<span id="cb17-93"><a href="#cb17-93"></a>**Lexical scope:** The scope of a variable is determined by where it is created in the code</span>
+<span id="cb17-94"><a href="#cb17-94"></a></span>
+<span id="cb17-95"><a href="#cb17-95"></a><span class="ss">-   </span>When code refers to an object (e.g. data set, function, vector, etc.), R looks for the object in the current, **local environment**.</span>
+<span id="cb17-96"><a href="#cb17-96"></a><span class="ss">-   </span>**parent environment** –\&gt; **global environment –\&gt; loaded packages**</span>
+<span id="cb17-97"><a href="#cb17-97"></a></span>
+<span id="cb17-98"><a href="#cb17-98"></a><span class="fu">## Tips of Writing Function</span></span>
+<span id="cb17-99"><a href="#cb17-99"></a></span>
+<span id="cb17-100"><a href="#cb17-100"></a><span class="ss">-   </span>**Body of the function** (the task that you are wanting to repeat)</span>
+<span id="cb17-101"><a href="#cb17-101"></a><span class="ss">-   </span>**Identify the parts of the function that could/would change** (these are the **inputs**)</span>
+<span id="cb17-102"><a href="#cb17-102"></a><span class="ss">    -   </span>Update the body of the function to be in terms of the inputs</span>
+<span id="cb17-103"><a href="#cb17-103"></a><span class="ss">    -   </span>Avoid manually typing anything that is specific to one input; use code to get that (such as unique values of a variable)</span>
+<span id="cb17-104"><a href="#cb17-104"></a><span class="ss">-   </span>**Identify the output you want to return**</span>
+<span id="cb17-105"><a href="#cb17-105"></a></span>
+<span id="cb17-106"><a href="#cb17-106"></a><span class="fu">## The `if-else if-else` Control Structure</span></span>
+<span id="cb17-107"><a href="#cb17-107"></a></span>
+<span id="cb17-108"><a href="#cb17-108"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-109"><a href="#cb17-109"></a><span class="cf">if</span> (logical_condition) {</span>
+<span id="cb17-110"><a href="#cb17-110"></a>    <span class="co"># some code</span></span>
+<span id="cb17-111"><a href="#cb17-111"></a>} <span class="cf">else</span> <span class="cf">if</span> (other_logical_condition) {</span>
+<span id="cb17-112"><a href="#cb17-112"></a>    <span class="co"># some code</span></span>
+<span id="cb17-113"><a href="#cb17-113"></a>} <span class="cf">else</span> {</span>
+<span id="cb17-114"><a href="#cb17-114"></a>    <span class="co"># some code</span></span>
+<span id="cb17-115"><a href="#cb17-115"></a>}</span>
+<span id="cb17-116"><a href="#cb17-116"></a><span class="in">```</span></span>
+<span id="cb17-117"><a href="#cb17-117"></a></span>
+<span id="cb17-118"><a href="#cb17-118"></a>::: {.callout-tip title="To vectorize or not to vectorize"}</span>
+<span id="cb17-119"><a href="#cb17-119"></a>The <span class="in">`if () else {}`</span> code is not **vectorized**; the logical condition in <span class="in">`if()`</span> cannot be a logical vector of length longer than 1.</span>
+<span id="cb17-120"><a href="#cb17-120"></a>:::</span>
+<span id="cb17-121"><a href="#cb17-121"></a></span>
+<span id="cb17-122"><a href="#cb17-122"></a><span class="fu"># 3. Base R</span></span>
+<span id="cb17-123"><a href="#cb17-123"></a></span>
+<span id="cb17-124"><a href="#cb17-124"></a><span class="fu">## Common R Object Structures</span></span>
+<span id="cb17-125"><a href="#cb17-125"></a></span>
+<span id="cb17-126"><a href="#cb17-126"></a>**Vector**: A vector is a **collection of elements** of the **same type** (e.g., numeric, integer, character, logical).</span>
+<span id="cb17-127"><a href="#cb17-127"></a></span>
+<span id="cb17-128"><a href="#cb17-128"></a>**List**: A list is a collection of elements (e.g., vectors, matrices, data frames, other lists).</span>
+<span id="cb17-129"><a href="#cb17-129"></a></span>
+<span id="cb17-130"><a href="#cb17-130"></a><span class="ss">-   </span>A list can have different types of elements.</span>
+<span id="cb17-131"><a href="#cb17-131"></a><span class="ss">-   </span>A list can have names for its elements.</span>
+<span id="cb17-132"><a href="#cb17-132"></a></span>
+<span id="cb17-133"><a href="#cb17-133"></a>**Array**: An array is a **vector** with a dimension attribute.</span>
+<span id="cb17-134"><a href="#cb17-134"></a></span>
+<span id="cb17-135"><a href="#cb17-135"></a><span class="ss">-   </span>Like a vector, an array can only have one type of data (e.g., numeric, character).</span>
+<span id="cb17-136"><a href="#cb17-136"></a></span>
+<span id="cb17-137"><a href="#cb17-137"></a>**Matrix**: A matrix is an **array** with only 2 dimensions (rows, columns).</span>
+<span id="cb17-138"><a href="#cb17-138"></a></span>
+<span id="cb17-139"><a href="#cb17-139"></a><span class="ss">-   </span>Like a vector, a matrix can only have one type of data (e.g., numeric, character).</span>
+<span id="cb17-140"><a href="#cb17-140"></a></span>
+<span id="cb17-141"><a href="#cb17-141"></a>**Data Frame/tibble**: A data frame is a named **list** with **elements** of equal length.</span>
+<span id="cb17-142"><a href="#cb17-142"></a></span>
+<span id="cb17-143"><a href="#cb17-143"></a><span class="ss">-   </span>Each element is a "column" in the data frame.</span>
+<span id="cb17-144"><a href="#cb17-144"></a><span class="ss">-   </span>The columns can be of different types (e.g., character, numeric, logical, lists, etc.).</span>
+<span id="cb17-145"><a href="#cb17-145"></a><span class="ss">-   </span>Data frames are the most common way to store data in R.</span>
+<span id="cb17-146"><a href="#cb17-146"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Tibbles do less and complain more than base data.frames</span><span class="co">](https://tibble.tidyverse.org/reference/tbl_df-class.html)</span></span>
+<span id="cb17-147"><a href="#cb17-147"></a></span>
+<span id="cb17-148"><a href="#cb17-148"></a><span class="fu">## Base R Subsetting</span></span>
+<span id="cb17-149"><a href="#cb17-149"></a></span>
+<span id="cb17-150"><a href="#cb17-150"></a><span class="fu">### Selecting elements with `[]`</span></span>
+<span id="cb17-151"><a href="#cb17-151"></a></span>
+<span id="cb17-152"><a href="#cb17-152"></a><span class="ss">1.  </span>**A vector of positive integers** (vectors; lists)</span>
+<span id="cb17-153"><a href="#cb17-153"></a><span class="ss">2.  </span>**A vector of negative integers**.</span>
+<span id="cb17-154"><a href="#cb17-154"></a></span>
+<span id="cb17-155"><a href="#cb17-155"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-156"><a href="#cb17-156"></a>x[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">5</span>)]</span>
+<span id="cb17-157"><a href="#cb17-157"></a><span class="co"># -1指的是正数第二个index</span></span>
+<span id="cb17-158"><a href="#cb17-158"></a><span class="in">```</span></span>
+<span id="cb17-159"><a href="#cb17-159"></a></span>
+<span id="cb17-160"><a href="#cb17-160"></a><span class="ss">3.  </span>**A logical vector**. (<span class="in">`filter()`</span> removes instances of missing values by default.)</span>
+<span id="cb17-161"><a href="#cb17-161"></a></span>
+<span id="cb17-162"><a href="#cb17-162"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-163"><a href="#cb17-163"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">c =</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb17-164"><a href="#cb17-164"></a>y[y <span class="sc">|&gt;</span> <span class="fu">map_lgl</span>(<span class="sc">~</span> <span class="fu">is.numeric</span>(.x))]</span>
+<span id="cb17-165"><a href="#cb17-165"></a><span class="in">```</span></span>
+<span id="cb17-166"><a href="#cb17-166"></a></span>
+<span id="cb17-167"><a href="#cb17-167"></a><span class="ss">4.  </span>**A character vector**</span>
+<span id="cb17-168"><a href="#cb17-168"></a></span>
+<span id="cb17-169"><a href="#cb17-169"></a>    <span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb17-170"><a href="#cb17-170"></a>    <span class="co"># Named Vector</span></span>
+<span id="cb17-171"><a href="#cb17-171"></a>    x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">abc =</span> <span class="dv">1</span>, <span class="at">def =</span> <span class="dv">2</span>, <span class="at">xyz =</span> <span class="dv">5</span>)</span>
+<span id="cb17-172"><a href="#cb17-172"></a>    x[<span class="fu">c</span>(<span class="st">"xyz"</span>, <span class="st">"def"</span>)]</span>
+<span id="cb17-173"><a href="#cb17-173"></a>    x[<span class="fu">c</span>(<span class="st">"xyz"</span>,<span class="st">"xyz"</span>,<span class="st">"xyz"</span>, <span class="st">"def"</span>)]</span>
+<span id="cb17-174"><a href="#cb17-174"></a></span>
+<span id="cb17-175"><a href="#cb17-175"></a>    <span class="co">#Named List</span></span>
+<span id="cb17-176"><a href="#cb17-176"></a>    y[<span class="fu">c</span>(<span class="st">'a'</span>,<span class="st">'a'</span>,<span class="st">'c'</span>)]</span>
+<span id="cb17-177"><a href="#cb17-177"></a>    <span class="co"># indicating indexes</span></span>
+<span id="cb17-178"><a href="#cb17-178"></a>    <span class="in">```</span></span>
+<span id="cb17-179"><a href="#cb17-179"></a></span>
+<span id="cb17-180"><a href="#cb17-180"></a><span class="fu">## Subsetting Matricies and Data Frames with `[ ]`</span></span>
+<span id="cb17-181"><a href="#cb17-181"></a></span>
+<span id="cb17-182"><a href="#cb17-182"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb17-183"><a href="#cb17-183"></a>m <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb17-184"><a href="#cb17-184"></a>m</span>
+<span id="cb17-185"><a href="#cb17-185"></a></span>
+<span id="cb17-186"><a href="#cb17-186"></a>m[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># Matrix = vector (down the columns) with dimensions</span></span>
+<span id="cb17-187"><a href="#cb17-187"></a><span class="in">```</span></span>
+<span id="cb17-188"><a href="#cb17-188"></a></span>
+<span id="cb17-189"><a href="#cb17-189"></a><span class="in">```{r,eval=FALSE}</span></span>
+<span id="cb17-190"><a href="#cb17-190"></a>m[<span class="dv">1</span>,] <span class="co"># Get 1st row</span></span>
+<span id="cb17-191"><a href="#cb17-191"></a>m[,<span class="dv">1</span>] <span class="co"># Get 1st column</span></span>
+<span id="cb17-192"><a href="#cb17-192"></a>m[<span class="dv">1</span>,<span class="dv">3</span>] <span class="co"># Get 1st row and 3rd column</span></span>
+<span id="cb17-193"><a href="#cb17-193"></a>m[<span class="sc">-</span><span class="dv">1</span>,] <span class="co"># Get all rows except 1st</span></span>
+<span id="cb17-194"><a href="#cb17-194"></a>m[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>),] <span class="co"># Get the 1st row via a logical</span></span>
+<span id="cb17-195"><a href="#cb17-195"></a><span class="in">```</span></span>
+<span id="cb17-196"><a href="#cb17-196"></a></span>
+<span id="cb17-197"><a href="#cb17-197"></a><span class="fu">## Selecting a single element with `$` and `[[`</span></span>
+<span id="cb17-198"><a href="#cb17-198"></a></span>
+<span id="cb17-199"><a href="#cb17-199"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb17-200"><a href="#cb17-200"></a>mtcars</span>
+<span id="cb17-201"><a href="#cb17-201"></a>mtcars<span class="sc">$</span>mpg</span>
+<span id="cb17-202"><a href="#cb17-202"></a>mtcars[[<span class="st">"mpg"</span>]]</span>
+<span id="cb17-203"><a href="#cb17-203"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">pull</span>(mpg)</span>
+<span id="cb17-204"><a href="#cb17-204"></a><span class="in">```</span></span>
+<span id="cb17-205"><a href="#cb17-205"></a></span>
+<span id="cb17-206"><a href="#cb17-206"></a><span class="fu">## Debugging Strategies</span></span>
+<span id="cb17-207"><a href="#cb17-207"></a></span>
+<span id="cb17-208"><a href="#cb17-208"></a><span class="ss">-   </span><span class="in">`print()`</span> and <span class="in">`cat()`</span> to print out intermediate results and messages within a function.</span>
+<span id="cb17-209"><a href="#cb17-209"></a><span class="ss">    -   </span>Examples: <span class="in">`print(x)`</span>, <span class="in">`cat("The value of x is", x, "\n")`</span></span>
+<span id="cb17-210"><a href="#cb17-210"></a><span class="ss">-   </span><span class="in">`browser()`</span> to pause the function at a certain point and interactively explore the environment.</span>
+<span id="cb17-211"><a href="#cb17-211"></a><span class="ss">-   </span><span class="in">`try()`</span> to catch errors and print out a message when an error occurs.</span>
+<span id="cb17-212"><a href="#cb17-212"></a><span class="ss">-   </span>Include <span class="in">`if else`</span> statements within a function to ensure that you are passing the right type of input to a function. You can create you own custom error message with <span class="in">`stop()`</span></span>
+<span id="cb17-213"><a href="#cb17-213"></a></span>
+<span id="cb17-214"><a href="#cb17-214"></a><span class="fu"># 4. Iteration</span></span>
+<span id="cb17-215"><a href="#cb17-215"></a></span>
+<span id="cb17-216"><a href="#cb17-216"></a><span class="fu">## For Loop</span></span>
+<span id="cb17-217"><a href="#cb17-217"></a></span>
+<span id="cb17-218"><a href="#cb17-218"></a><span class="in">```{r for_syntax, eval = FALSE}</span></span>
+<span id="cb17-219"><a href="#cb17-219"></a><span class="co">#| eval: false</span></span>
+<span id="cb17-220"><a href="#cb17-220"></a></span>
+<span id="cb17-221"><a href="#cb17-221"></a><span class="cf">for</span> (i <span class="cf">in</span> some_vector) {</span>
+<span id="cb17-222"><a href="#cb17-222"></a>    <span class="co"># Code to do stuff based on i</span></span>
+<span id="cb17-223"><a href="#cb17-223"></a>}</span>
+<span id="cb17-224"><a href="#cb17-224"></a><span class="in">```</span></span>
+<span id="cb17-225"><a href="#cb17-225"></a></span>
+<span id="cb17-226"><a href="#cb17-226"></a><span class="in">`some_vector`</span> can be **any** vector, including:</span>
+<span id="cb17-227"><a href="#cb17-227"></a></span>
+<span id="cb17-228"><a href="#cb17-228"></a><span class="ss">-   </span>An **indexing** integer vector: <span class="in">`1:3`</span> <span class="sc">\[</span>Most common!<span class="sc">\]</span></span>
+<span id="cb17-229"><a href="#cb17-229"></a></span>
+<span id="cb17-230"><a href="#cb17-230"></a><span class="ss">-   </span>A character vector: <span class="in">`c("group1", "group2", "group3")`</span></span>
+<span id="cb17-231"><a href="#cb17-231"></a></span>
+<span id="cb17-232"><a href="#cb17-232"></a><span class="ss">-   </span>A vector of any other class</span>
+<span id="cb17-233"><a href="#cb17-233"></a></span>
+<span id="cb17-234"><a href="#cb17-234"></a><span class="ss">-   </span>**Index vector function**</span>
+<span id="cb17-235"><a href="#cb17-235"></a></span>
+<span id="cb17-236"><a href="#cb17-236"></a>    <span class="in">`seq_along(v)`</span>: generates an integer sequence from 1 to the length of the vector <span class="in">`v`</span> supplied</span>
+<span id="cb17-237"><a href="#cb17-237"></a></span>
+<span id="cb17-238"><a href="#cb17-238"></a>    <span class="in">`seq_len(n)`</span>: generates an integer sequence from 1 to <span class="in">`n`</span></span>
+<span id="cb17-239"><a href="#cb17-239"></a></span>
+<span id="cb17-240"><a href="#cb17-240"></a>**vector(): create storage containers**</span>
+<span id="cb17-241"><a href="#cb17-241"></a></span>
+<span id="cb17-242"><a href="#cb17-242"></a><span class="fu">## **Across()**</span></span>
+<span id="cb17-243"><a href="#cb17-243"></a></span>
+<span id="cb17-244"><a href="#cb17-244"></a><span class="in">`dplyr`</span> provides the <span class="in">`across()`</span> function for performing these repeated function calls</span>
+<span id="cb17-245"><a href="#cb17-245"></a></span>
+<span id="cb17-246"><a href="#cb17-246"></a><span class="in">```{r with_across, eval = FALSE}</span></span>
+<span id="cb17-247"><a href="#cb17-247"></a><span class="co"># Option 1: Create our own named function</span></span>
+<span id="cb17-248"><a href="#cb17-248"></a>round_to_one <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb17-249"><a href="#cb17-249"></a>    <span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb17-250"><a href="#cb17-250"></a>}</span>
+<span id="cb17-251"><a href="#cb17-251"></a>diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb17-252"><a href="#cb17-252"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(carat, x, y, z), <span class="at">.fns =</span> round_to_one))</span>
+<span id="cb17-253"><a href="#cb17-253"></a><span class="in">```</span></span>
+<span id="cb17-254"><a href="#cb17-254"></a></span>
+<span id="cb17-255"><a href="#cb17-255"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb17-256"><a href="#cb17-256"></a>diamonds <span class="sc">|&gt;</span> </span>
+<span id="cb17-257"><a href="#cb17-257"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">c</span>(carat, x, y, z), <span class="at">.fns =</span> <span class="cf">function</span>(x) {<span class="fu">round</span>(x, <span class="at">digits =</span> <span class="dv">1</span>)} ))</span>
+<span id="cb17-258"><a href="#cb17-258"></a><span class="in">```</span></span>
+<span id="cb17-259"><a href="#cb17-259"></a></span>
+<span id="cb17-260"><a href="#cb17-260"></a>**arguments** in a custom model-fitting function:</span>
+<span id="cb17-261"><a href="#cb17-261"></a></span>
+<span id="cb17-262"><a href="#cb17-262"></a><span class="ss">-   </span><span class="in">`impute`</span>: TRUE or FALSE</span>
+<span id="cb17-263"><a href="#cb17-263"></a><span class="ss">-   </span><span class="in">`filter_to`</span>: This could be a string description like "All cases", "Group 1", or "Groups 1 and 2"</span>
+<span id="cb17-264"><a href="#cb17-264"></a></span>
+<span id="cb17-265"><a href="#cb17-265"></a><span class="in">`crossing()`</span> ：useful for generating argument combinations.</span>
+<span id="cb17-266"><a href="#cb17-266"></a></span>
+<span id="cb17-267"><a href="#cb17-267"></a><span class="fu">## Iteration with `purrr`</span></span>
+<span id="cb17-268"><a href="#cb17-268"></a></span>
+<span id="cb17-269"><a href="#cb17-269"></a><span class="ss">-   </span>Improved readability of R code</span>
+<span id="cb17-270"><a href="#cb17-270"></a><span class="ss">-   </span><span class="in">`for (i in ...)`</span></span>
+<span id="cb17-271"><a href="#cb17-271"></a><span class="ss">-   </span>storage containers <span class="in">`vector()`</span></span>
+<span id="cb17-272"><a href="#cb17-272"></a><span class="ss">-   </span><span class="in">`purrr::map()`</span></span>
+<span id="cb17-273"><a href="#cb17-273"></a><span class="ss">-   </span><span class="in">`results4 &lt;- bench::mark(seq(1,1e5))`</span>Standard R</span>
+<span id="cb17-274"><a href="#cb17-274"></a></span>
+<span id="cb17-275"><a href="#cb17-275"></a><span class="fu">## Iteration with `map`</span></span>
+<span id="cb17-276"><a href="#cb17-276"></a></span>
+<span id="cb17-277"><a href="#cb17-277"></a><span class="ss">-   </span><span class="in">`map()`</span> can **iterate over columns of a dataset**.</span>
+<span id="cb17-278"><a href="#cb17-278"></a><span class="ss">-   </span><span class="in">`map()`</span> returns a list</span>
+<span id="cb17-279"><a href="#cb17-279"></a><span class="ss">-   </span><span class="in">`map_chr()`</span> returns a character vector</span>
+<span id="cb17-280"><a href="#cb17-280"></a><span class="ss">-   </span><span class="in">`map_lgl()`</span> returns a logical vector</span>
+<span id="cb17-281"><a href="#cb17-281"></a><span class="ss">-   </span><span class="in">`map_int()`</span> returns an integer vector</span>
+<span id="cb17-282"><a href="#cb17-282"></a><span class="ss">-   </span><span class="in">`map_dbl()`</span> returns a numeric vector</span>
+<span id="cb17-283"><a href="#cb17-283"></a><span class="ss">-   </span><span class="in">`map_vec()`</span> returns a vector of a different (non-atomic) type (like dates)</span>
+<span id="cb17-284"><a href="#cb17-284"></a></span>
+<span id="cb17-285"><a href="#cb17-285"></a><span class="fu">## Iteration with `map2` or `pmap`</span></span>
+<span id="cb17-286"><a href="#cb17-286"></a></span>
+<span id="cb17-287"><a href="#cb17-287"></a><span class="in">`unnest()`</span></span>
+<span id="cb17-288"><a href="#cb17-288"></a></span>
+<span id="cb17-289"><a href="#cb17-289"></a><span class="fu">## Iteration with `walk`</span></span>
+<span id="cb17-290"><a href="#cb17-290"></a></span>
+<span id="cb17-291"><a href="#cb17-291"></a><span class="in">`walk()`</span> functions (<span class="in">`walk`</span>, <span class="in">`walk2`</span>, and <span class="in">`pwalk`</span>) to apply a function to each element of a list or vector with **no output.**</span>
+<span id="cb17-292"><a href="#cb17-292"></a></span>
+<span id="cb17-293"><a href="#cb17-293"></a><span class="fu"># 5. API</span></span>
+<span id="cb17-294"><a href="#cb17-294"></a></span>
+<span id="cb17-295"><a href="#cb17-295"></a><span class="fu">## JSON Files</span></span>
+<span id="cb17-296"><a href="#cb17-296"></a></span>
+<span id="cb17-297"><a href="#cb17-297"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">`{}`</span><span class="co">](https://rdrr.io/r/base/Paren.html)</span> enclose an object</span>
+<span id="cb17-298"><a href="#cb17-298"></a></span>
+<span id="cb17-299"><a href="#cb17-299"></a><span class="ss">-   </span>Key(string) -value(can be string, number, boolean, array, or another object) pairs</span>
+<span id="cb17-300"><a href="#cb17-300"></a></span>
+<span id="cb17-301"><a href="#cb17-301"></a><span class="ss">-   </span>Colon <span class="in">`:`</span> separates the key from the value.</span>
+<span id="cb17-302"><a href="#cb17-302"></a></span>
+<span id="cb17-303"><a href="#cb17-303"></a><span class="ss">-   </span>Comma <span class="in">`,`</span> separates different key-value pairs within the object.</span>
+<span id="cb17-304"><a href="#cb17-304"></a></span>
+<span id="cb17-305"><a href="#cb17-305"></a><span class="ss">-   </span>Square brackets <span class="in">`[]`</span> enclose an array, which is an ordered list of values.</span>
+<span id="cb17-306"><a href="#cb17-306"></a></span>
+<span id="cb17-307"><a href="#cb17-307"></a><span class="ss">-   </span>Double quotes used to surround the key and any string value.</span>
+<span id="cb17-308"><a href="#cb17-308"></a></span>
+<span id="cb17-309"><a href="#cb17-309"></a>    ## **Reading JSON Files**</span>
+<span id="cb17-310"><a href="#cb17-310"></a></span>
+<span id="cb17-311"><a href="#cb17-311"></a><span class="ss">    -   </span>fromJSON( ): **converts JSON characters to R objects** (A named list (but elements are not all of the same length).</span>
+<span id="cb17-312"><a href="#cb17-312"></a></span>
+<span id="cb17-313"><a href="#cb17-313"></a><span class="ss">    -   </span>If we don't try to simplify, fromJSON() **provides a list**</span>
+<span id="cb17-314"><a href="#cb17-314"></a></span>
+<span id="cb17-315"><a href="#cb17-315"></a>    <span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb17-316"><a href="#cb17-316"></a>    <span class="fu">fromJSON</span>(json, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)  </span>
+<span id="cb17-317"><a href="#cb17-317"></a>    <span class="in">```</span></span>
+<span id="cb17-318"><a href="#cb17-318"></a></span>
+<span id="cb17-319"><a href="#cb17-319"></a><span class="in">    -   If it is an array that satisfies the constraints of a data frame, it may be able to simplify to **data frame**</span></span>
+<span id="cb17-320"><a href="#cb17-320"></a></span>
+<span id="cb17-321"><a href="#cb17-321"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb17-322"><a href="#cb17-322"></a><span class="fu">fromJSON</span>(json, <span class="at">simplifyVector =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-323"><a href="#cb17-323"></a><span class="in">```</span></span>
+<span id="cb17-324"><a href="#cb17-324"></a></span>
+<span id="cb17-325"><a href="#cb17-325"></a><span class="fu">## API Definition</span></span>
+<span id="cb17-326"><a href="#cb17-326"></a></span>
+<span id="cb17-327"><a href="#cb17-327"></a>**API**: **Application Programming Interface** – a general class of tools that allows computer software to interact with an organization's data.</span>
+<span id="cb17-328"><a href="#cb17-328"></a></span>
+<span id="cb17-329"><a href="#cb17-329"></a><span class="ss">-   </span>*Application*: software.</span>
+<span id="cb17-330"><a href="#cb17-330"></a><span class="ss">-   </span>*Interface*: a contract of service between two applications. This contract defines how the two communicate with each other **using requests and responses.**</span>
+<span id="cb17-331"><a href="#cb17-331"></a></span>
+<span id="cb17-332"><a href="#cb17-332"></a>**Every API** has documentation for how software developers should structure requests for data / information and in what format to expect responses.</span>
+<span id="cb17-333"><a href="#cb17-333"></a></span>
+<span id="cb17-334"><a href="#cb17-334"></a><span class="fu">## Web APIs</span></span>
+<span id="cb17-335"><a href="#cb17-335"></a></span>
+<span id="cb17-336"><a href="#cb17-336"></a><span class="co">[</span><span class="ot">Web APIs</span><span class="co">](https://en.wikipedia.org/wiki/Web_API)</span>, which focus on **transmitting requests and responses for raw data through a web browser**.</span>
+<span id="cb17-337"><a href="#cb17-337"></a></span>
+<span id="cb17-338"><a href="#cb17-338"></a><span class="ss">-   </span>Our browsers **communicate** with web servers using a technology called [**HTTP**](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) or Hypertext Transfer Protocol.</span>
+<span id="cb17-339"><a href="#cb17-339"></a><span class="ss">-   </span>Programming languages such as R can also use HTTP to **communicate with web servers**.</span>
+<span id="cb17-340"><a href="#cb17-340"></a></span>
+<span id="cb17-341"><a href="#cb17-341"></a><span class="fu">### URL</span></span>
+<span id="cb17-342"><a href="#cb17-342"></a></span>
+<span id="cb17-343"><a href="#cb17-343"></a>Every document on the Web has **a unique address.**</span>
+<span id="cb17-344"><a href="#cb17-344"></a></span>
+<span id="cb17-345"><a href="#cb17-345"></a>Same General Structure:</span>
+<span id="cb17-346"><a href="#cb17-346"></a></span>
+<span id="cb17-347"><a href="#cb17-347"></a><span class="in">`https://api.census.gov/data/2019/acs/acs1?get=NAME,B02015_009E,B02015_009M&amp;for=state:*`</span></span>
+<span id="cb17-348"><a href="#cb17-348"></a></span>
+<span id="cb17-349"><a href="#cb17-349"></a>**base URL**</span>
+<span id="cb17-350"><a href="#cb17-350"></a></span>
+<span id="cb17-351"><a href="#cb17-351"></a>**scheme**</span>
+<span id="cb17-352"><a href="#cb17-352"></a></span>
+<span id="cb17-353"><a href="#cb17-353"></a>**hostname** or **host address**</span>
+<span id="cb17-354"><a href="#cb17-354"></a></span>
+<span id="cb17-355"><a href="#cb17-355"></a>**file path**</span>
+<span id="cb17-356"><a href="#cb17-356"></a></span>
+<span id="cb17-357"><a href="#cb17-357"></a><span class="ss">-   </span>This is a string of key-value pairs separated by <span class="in">`&amp;`</span></span>
+<span id="cb17-358"><a href="#cb17-358"></a></span>
+<span id="cb17-359"><a href="#cb17-359"></a><span class="fu">## Wrapper packages</span></span>
+<span id="cb17-360"><a href="#cb17-360"></a></span>
+<span id="cb17-361"><a href="#cb17-361"></a>In R, it is easiest to access Web APIs through a **wrapper package**, an R package written specifically for a particular Web API.</span>
+<span id="cb17-362"><a href="#cb17-362"></a></span>
+<span id="cb17-363"><a href="#cb17-363"></a>eg.</span>
+<span id="cb17-364"><a href="#cb17-364"></a>tidycensus get_acs()</span>
+<span id="cb17-365"><a href="#cb17-365"></a></span>
+<span id="cb17-366"><a href="#cb17-366"></a><span class="fu">## Accessing web APIs directly</span></span>
+<span id="cb17-367"><a href="#cb17-367"></a></span>
+<span id="cb17-368"><a href="#cb17-368"></a><span class="fu">### Getting a Census API key</span></span>
+<span id="cb17-369"><a href="#cb17-369"></a></span>
+<span id="cb17-370"><a href="#cb17-370"></a><span class="fu">### Navigating API documentation</span></span>
+<span id="cb17-371"><a href="#cb17-371"></a></span>
+<span id="cb17-372"><a href="#cb17-372"></a>eg.</span>
+<span id="cb17-373"><a href="#cb17-373"></a>https://api.census.gov/data/2019/acs/acs1?g</span>
+<span id="cb17-374"><a href="#cb17-374"></a>et=NAME,B02015_009E,B02015_009M&amp;for=state:<span class="sc">\*</span></span>
+<span id="cb17-375"><a href="#cb17-375"></a></span>
+<span id="cb17-376"><a href="#cb17-376"></a><span class="ss">-   </span>we can adjust the **path** to change desired dataset (acs1) and year</span>
+<span id="cb17-377"><a href="#cb17-377"></a><span class="ss">-   </span>we can adjust the **query string** to get different variables (<span class="in">`get`</span>) and for different states (<span class="in">`for`</span>)</span>
+<span id="cb17-378"><a href="#cb17-378"></a></span>
+<span id="cb17-379"><a href="#cb17-379"></a><span class="fu">### Building a URL with `httr2`</span></span>
+<span id="cb17-380"><a href="#cb17-380"></a></span>
+<span id="cb17-381"><a href="#cb17-381"></a>Build up a full URL from its parts</span>
+<span id="cb17-382"><a href="#cb17-382"></a></span>
+<span id="cb17-383"><a href="#cb17-383"></a><span class="ss">-   </span><span class="in">`request()`</span> creates an API request object using the **base URL**</span>
+<span id="cb17-384"><a href="#cb17-384"></a><span class="ss">-   </span><span class="in">`req_url_path_append()`</span> builds up the URL by adding path components separated by <span class="in">`/`</span></span>
+<span id="cb17-385"><a href="#cb17-385"></a><span class="ss">-   </span><span class="in">`req_url_query()`</span> adds the <span class="in">`?`</span> separating the endpoint from the query and sets the key-value pairs in the query</span>
+<span id="cb17-386"><a href="#cb17-386"></a><span class="ss">    -   </span>The <span class="in">`.multi`</span> argument controls how multiple values for a given key are combined.</span>
+<span id="cb17-387"><a href="#cb17-387"></a><span class="ss">    -   </span>The <span class="in">`I()`</span> function around <span class="in">`"state:*"`</span> inhibits parsing of special characters like <span class="in">`:`</span> and <span class="in">`*`</span>. (It's known as the "as-is" function.)</span>
+<span id="cb17-388"><a href="#cb17-388"></a><span class="ss">    -   </span>The backticks around <span class="in">`for`</span> are needed because <span class="in">`for`</span> is a reserved word in R (for for-loops). You'll need backticks whenever the key name has special characters (like spaces, dashes).</span>
+<span id="cb17-389"><a href="#cb17-389"></a><span class="ss">    -   </span>We can see from <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.census.gov/data/developers/guidance/api-user-guide.Help_&amp;_Contact_Us.html)</span> that providing an API key is achieved with <span class="in">`key=YOUR_API_KEY`</span>.</span>
+<span id="cb17-390"><a href="#cb17-390"></a></span>
+<span id="cb17-391"><a href="#cb17-391"></a><span class="fu">### Sending a request with `httr2`{.unnumbered}</span></span>
+<span id="cb17-392"><a href="#cb17-392"></a></span>
+<span id="cb17-393"><a href="#cb17-393"></a><span class="in">`req_perform()`</span> to send out the API request and get a **response**.</span>
+<span id="cb17-394"><a href="#cb17-394"></a></span>
+<span id="cb17-395"><a href="#cb17-395"></a><span class="fu">### Getting a response with `httr2`</span></span>
+<span id="cb17-396"><a href="#cb17-396"></a></span>
+<span id="cb17-397"><a href="#cb17-397"></a><span class="ss">-   </span><span class="in">`resp_body_json()`</span> in <span class="in">`httr2`</span> to parse the JSON into a nicer R format.</span>
+<span id="cb17-398"><a href="#cb17-398"></a></span>
+<span id="cb17-399"><a href="#cb17-399"></a><span class="fu">## More API Examples</span></span>
+<span id="cb17-400"><a href="#cb17-400"></a></span>
+<span id="cb17-401"><a href="#cb17-401"></a><span class="fu">### Board Game Geek &amp; XML Data</span></span>
+<span id="cb17-402"><a href="#cb17-402"></a></span>
+<span id="cb17-403"><a href="#cb17-403"></a>When we use <span class="in">`req_perform()`</span>, <span class="in">`Content-Type`</span>: XML. We can navigate to the request URL to see the structure of this output.</span>
+<span id="cb17-404"><a href="#cb17-404"></a></span>
+<span id="cb17-405"><a href="#cb17-405"></a><span class="ss">-   </span>XML (Extensible Markup Language) is a tree structure of named nodes and attributes.</span>
+<span id="cb17-406"><a href="#cb17-406"></a><span class="ss">-   </span>We can use <span class="in">`resp_body_xml()`</span> to read in the XML as an R object.</span>
+<span id="cb17-407"><a href="#cb17-407"></a></span>
+<span id="cb17-408"><a href="#cb17-408"></a>The key navigation and extraction functions in <span class="in">`xml2`</span> are:</span>
+<span id="cb17-409"><a href="#cb17-409"></a></span>
+<span id="cb17-410"><a href="#cb17-410"></a><span class="ss">-   </span><span class="in">`xml_children()`</span>: Get nodes that are nested inside</span>
+<span id="cb17-411"><a href="#cb17-411"></a><span class="ss">    -   </span>Like getting the first level bullet points inside a given bullet point</span>
+<span id="cb17-412"><a href="#cb17-412"></a><span class="ss">-   </span><span class="in">`xml_find_all()`</span>: Finds nodes matching an XPath expression (XPath stands for XML path)</span>
+<span id="cb17-413"><a href="#cb17-413"></a><span class="ss">    -   </span>XPath expressions are like string regular expressions for XML trees</span>
+<span id="cb17-414"><a href="#cb17-414"></a><span class="ss">    -   </span>See <span class="co">[</span><span class="ot">here</span><span class="co">](https://www.w3schools.com/xml/xpath_intro.asp)</span> for a deeper dive into XPath</span>
+<span id="cb17-415"><a href="#cb17-415"></a><span class="ss">-   </span><span class="in">`xml_attr()`</span>: Selects the value of an attribute (the information to the right of the <span class="in">`=`</span> in quotes)</span>
+<span id="cb17-416"><a href="#cb17-416"></a><span class="ss">    -   </span><span class="in">`&lt;node_name attribute_name1="attribute_value1" attribute_name2="attribute_value2"&gt;`</span></span>
+<span id="cb17-417"><a href="#cb17-417"></a></span>
+<span id="cb17-418"><a href="#cb17-418"></a><span class="fu"># 7. DataBase</span></span>
+<span id="cb17-419"><a href="#cb17-419"></a></span>
+<span id="cb17-420"><a href="#cb17-420"></a>DataWarehouse: Base on **Relational** **(SQL) databases**</span>
+<span id="cb17-421"><a href="#cb17-421"></a></span>
+<span id="cb17-422"><a href="#cb17-422"></a><span class="fu">## Connecting to a database in R with `DBI`</span></span>
+<span id="cb17-423"><a href="#cb17-423"></a></span>
+<span id="cb17-424"><a href="#cb17-424"></a>The <span class="in">`DBI`</span> package (**d**ata**b**ase **i**nterface) provides general tools for interacting with databases from R.</span>
+<span id="cb17-425"><a href="#cb17-425"></a></span>
+<span id="cb17-426"><a href="#cb17-426"></a><span class="ss">-   </span><span class="in">`DBI`</span>: connect with an **in-process** database (<span class="in">`duckdb`</span>), one that runs locally on your computer.</span>
+<span id="cb17-427"><a href="#cb17-427"></a></span>
+<span id="cb17-428"><a href="#cb17-428"></a><span class="ss">-   </span><span class="in">`duckdb_read_csv()`</span>: store data directly into the <span class="in">`duckdb`</span> database without first having to read it into R.</span>
+<span id="cb17-429"><a href="#cb17-429"></a></span>
+<span id="cb17-430"><a href="#cb17-430"></a><span class="ss">-   </span>Set up a database connection with <span class="in">`dbConnect()`</span> and initialize a temporary database with <span class="in">`duckdb()`</span>:</span>
+<span id="cb17-431"><a href="#cb17-431"></a></span>
+<span id="cb17-432"><a href="#cb17-432"></a>    <span class="in">`{library(tidyverse)} library(DBI) library(duckdb) con &lt;- DBI::dbConnect(duckdb::duckdb()) class(con)`</span></span>
+<span id="cb17-433"><a href="#cb17-433"></a></span>
+<span id="cb17-434"><a href="#cb17-434"></a><span class="fu">## SQL</span></span>
+<span id="cb17-435"><a href="#cb17-435"></a></span>
+<span id="cb17-436"><a href="#cb17-436"></a>a programming language to query or retrieve data from a relational database</span>
+<span id="cb17-437"><a href="#cb17-437"></a></span>
+<span id="cb17-438"><a href="#cb17-438"></a><span class="fu">### SQL with `dplyr`</span></span>
+<span id="cb17-439"><a href="#cb17-439"></a></span>
+<span id="cb17-440"><a href="#cb17-440"></a>**show_query():** translate from r to sql</span>
+<span id="cb17-441"><a href="#cb17-441"></a></span>
+<span id="cb17-442"><a href="#cb17-442"></a>**clauses:** <span class="in">`SELECT`</span>, <span class="in">`FROM`</span>, <span class="in">`WHERE`</span>, <span class="in">`GROUP BY`</span>, and <span class="in">`ORDER BY`</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+
+<div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
