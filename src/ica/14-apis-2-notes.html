@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../src/appx/Exam2SummarySheet.html" rel="next">
+<link href="../../src/ica/15-scraping-notes.html" rel="next">
 <link href="../../src/ica/12-iteration-2-notes.html" rel="prev">
 <script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
@@ -426,6 +426,11 @@ cookieconsent.run({
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/ica/14-apis-2-notes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">14 APIs P2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/ica/15-scraping-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">15 Web scraping</span></a>
   </div>
 </li>
       </ul>
@@ -904,7 +909,7 @@ Body: empty</code></pre>
 </details>
 </div>
 <section id="exploring-complex-lists" class="level4"><h4 class="anchored" data-anchor-id="exploring-complex-lists">Exploring complex lists</h4>
-<p><code>resp_pt</code> is a <strong>list</strong>. A list is a useful structure for storing elements of different types. Data frames are special cases of lists where each list element has the same length (but where the list elements have different classes).</p>
+<p>. A list is a useful structure for storing elements of different types. Data frames are special cases of lists where each list element has the same length (but where the list elements have different classes).</p>
 <p>Lists are a very flexible data structure but can be very confusing because list elements can be lists themselves!</p>
 <p>We can explore the structure of a list in two ways:</p>
 <ul>
@@ -1445,8 +1450,8 @@ Body: empty</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../src/appx/Exam2SummarySheet.html" class="pagination-link" aria-label="---">
-        <span class="nav-page-text"><span class="chapter-title">—</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../src/ica/15-scraping-notes.html" class="pagination-link" aria-label="15 Web scraping">
+        <span class="nav-page-text"><span class="chapter-title">15 Web scraping</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1957,88 +1962,87 @@ Body: empty</code></pre>
 <span id="cb25-505"><a href="#cb25-505"></a></span>
 <span id="cb25-506"><a href="#cb25-506"></a><span class="fu">#### Exploring complex lists</span></span>
 <span id="cb25-507"><a href="#cb25-507"></a></span>
-<span id="cb25-508"><a href="#cb25-508"></a><span class="in">`resp_pt`</span> is a **list**. A list is a useful structure for storing</span>
-<span id="cb25-509"><a href="#cb25-509"></a>elements of different types. Data frames are special cases of lists</span>
-<span id="cb25-510"><a href="#cb25-510"></a>where each list element has the same length (but where the list elements</span>
-<span id="cb25-511"><a href="#cb25-511"></a>have different classes).</span>
-<span id="cb25-512"><a href="#cb25-512"></a></span>
-<span id="cb25-513"><a href="#cb25-513"></a>Lists are a very flexible data structure but can be very confusing</span>
-<span id="cb25-514"><a href="#cb25-514"></a>because list elements can be lists themselves!</span>
-<span id="cb25-515"><a href="#cb25-515"></a></span>
-<span id="cb25-516"><a href="#cb25-516"></a>We can explore the structure of a list in two ways:</span>
-<span id="cb25-517"><a href="#cb25-517"></a></span>
-<span id="cb25-518"><a href="#cb25-518"></a><span class="ss">-   </span>Entering <span class="in">`View(list_object)`</span> in the Console. The triangle buttons on</span>
-<span id="cb25-519"><a href="#cb25-519"></a>    the left allow you to toggle dropdowns to explore list elements.</span>
-<span id="cb25-520"><a href="#cb25-520"></a><span class="ss">-   </span>Using the <span class="in">`str()`</span> (structure) function.</span>
-<span id="cb25-521"><a href="#cb25-521"></a></span>
-<span id="cb25-522"><a href="#cb25-522"></a>Using base R subsetting, we can access elements of a list in three ways:</span>
-<span id="cb25-523"><a href="#cb25-523"></a></span>
-<span id="cb25-524"><a href="#cb25-524"></a><span class="ss">-   </span>By *position* with double square brackets <span class="in">`[[`</span>:</span>
-<span id="cb25-525"><a href="#cb25-525"></a></span>
-<span id="cb25-526"><a href="#cb25-526"></a><span class="in">```{r list_access1}</span></span>
-<span id="cb25-527"><a href="#cb25-527"></a><span class="co">#| eval: false</span></span>
-<span id="cb25-528"><a href="#cb25-528"></a><span class="co"># This gets the first element of the list</span></span>
-<span id="cb25-529"><a href="#cb25-529"></a>resp_pt[[<span class="dv">1</span>]]</span>
-<span id="cb25-530"><a href="#cb25-530"></a><span class="in">```</span></span>
-<span id="cb25-531"><a href="#cb25-531"></a></span>
-<span id="cb25-532"><a href="#cb25-532"></a><span class="ss">-   </span>By *name* with double square brackets <span class="in">`[[`</span>: (note that list elements</span>
-<span id="cb25-533"><a href="#cb25-533"></a>    are not always named, so this won't always be possible)</span>
-<span id="cb25-534"><a href="#cb25-534"></a></span>
-<span id="cb25-535"><a href="#cb25-535"></a><span class="in">```{r list_access2}</span></span>
-<span id="cb25-536"><a href="#cb25-536"></a><span class="co">#| eval: false</span></span>
-<span id="cb25-537"><a href="#cb25-537"></a><span class="co"># Accessing by name directly</span></span>
-<span id="cb25-538"><a href="#cb25-538"></a>resp_pt[[<span class="st">"status"</span>]]</span>
-<span id="cb25-539"><a href="#cb25-539"></a></span>
-<span id="cb25-540"><a href="#cb25-540"></a><span class="co"># Accessing via a variable</span></span>
-<span id="cb25-541"><a href="#cb25-541"></a>which_element <span class="ot">&lt;-</span> <span class="st">"status"</span></span>
-<span id="cb25-542"><a href="#cb25-542"></a>resp_pt[[which_element]]</span>
-<span id="cb25-543"><a href="#cb25-543"></a><span class="in">```</span></span>
-<span id="cb25-544"><a href="#cb25-544"></a></span>
-<span id="cb25-545"><a href="#cb25-545"></a><span class="ss">-   </span>By *name* with a dollar sign <span class="in">`$`</span>: (Helpful tip: For this mode of</span>
-<span id="cb25-546"><a href="#cb25-546"></a>    access, RStudio allows tab completion to fill in the full name)</span>
-<span id="cb25-547"><a href="#cb25-547"></a></span>
-<span id="cb25-548"><a href="#cb25-548"></a><span class="in">```{r list_access3}</span></span>
-<span id="cb25-549"><a href="#cb25-549"></a><span class="co">#| eval: false</span></span>
-<span id="cb25-550"><a href="#cb25-550"></a>resp_pt<span class="sc">$</span>status</span>
-<span id="cb25-551"><a href="#cb25-551"></a><span class="in">```</span></span>
-<span id="cb25-552"><a href="#cb25-552"></a></span>
-<span id="cb25-553"><a href="#cb25-553"></a>We can retrieve these *nested* attributes by sequentially accessing the</span>
-<span id="cb25-554"><a href="#cb25-554"></a>object keys from the outside in. For example, the <span class="in">`meta`</span> element would</span>
-<span id="cb25-555"><a href="#cb25-555"></a>be accessed as follows:</span>
-<span id="cb25-556"><a href="#cb25-556"></a></span>
-<span id="cb25-557"><a href="#cb25-557"></a><span class="in">```{r list_access4}</span></span>
-<span id="cb25-558"><a href="#cb25-558"></a><span class="co">#| eval: false</span></span>
-<span id="cb25-559"><a href="#cb25-559"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta</span>
-<span id="cb25-560"><a href="#cb25-560"></a><span class="in">```</span></span>
-<span id="cb25-561"><a href="#cb25-561"></a></span>
-<span id="cb25-562"><a href="#cb25-562"></a>**Exercise:** In the <span class="in">`resp_pt`</span> object, retrieve the data associated</span>
-<span id="cb25-563"><a href="#cb25-563"></a>with:</span>
-<span id="cb25-564"><a href="#cb25-564"></a></span>
-<span id="cb25-565"><a href="#cb25-565"></a><span class="ss">-   </span>the <span class="in">`copyright`</span> key</span>
-<span id="cb25-566"><a href="#cb25-566"></a></span>
-<span id="cb25-567"><a href="#cb25-567"></a><span class="ss">-   </span>the number of <span class="in">`hits`</span> (number of search results) within the <span class="in">`meta`</span></span>
-<span id="cb25-568"><a href="#cb25-568"></a>    object</span>
-<span id="cb25-569"><a href="#cb25-569"></a></span>
-<span id="cb25-570"><a href="#cb25-570"></a><span class="ss">-   </span>the abstracts and leading paragraphs of the articles found in the</span>
-<span id="cb25-571"><a href="#cb25-571"></a>    search</span>
-<span id="cb25-572"><a href="#cb25-572"></a></span>
-<span id="cb25-573"><a href="#cb25-573"></a>    <span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb25-574"><a href="#cb25-574"></a>    resp_pt<span class="sc">$</span>copyright</span>
-<span id="cb25-575"><a href="#cb25-575"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span>
-<span id="cb25-576"><a href="#cb25-576"></a></span>
-<span id="cb25-577"><a href="#cb25-577"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>abstract</span>
-<span id="cb25-578"><a href="#cb25-578"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>lead_paragraph</span>
-<span id="cb25-579"><a href="#cb25-579"></a></span>
-<span id="cb25-580"><a href="#cb25-580"></a>    <span class="co"># Both (abstract and leading paragraph) at once</span></span>
-<span id="cb25-581"><a href="#cb25-581"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs[<span class="fu">c</span>(<span class="st">"abstract"</span>, <span class="st">"lead_paragraph"</span>)]</span>
-<span id="cb25-582"><a href="#cb25-582"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs <span class="sc">|&gt;</span></span>
-<span id="cb25-583"><a href="#cb25-583"></a>        <span class="fu">select</span>(abstract, lead_paragraph)</span>
-<span id="cb25-584"><a href="#cb25-584"></a>    <span class="in">```</span></span>
-<span id="cb25-585"><a href="#cb25-585"></a></span>
-<span id="cb25-586"><a href="#cb25-586"></a><span class="fu">## Done!</span></span>
-<span id="cb25-587"><a href="#cb25-587"></a></span>
-<span id="cb25-588"><a href="#cb25-588"></a><span class="ss">-   </span>Check the ICA Instructions for how to (a) push your code to GitHub</span>
-<span id="cb25-589"><a href="#cb25-589"></a>    and (b) update your portfolio website</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb25-508"><a href="#cb25-508"></a>. A list is a useful structure for storing elements of different types.</span>
+<span id="cb25-509"><a href="#cb25-509"></a>Data frames are special cases of lists where each list element has the</span>
+<span id="cb25-510"><a href="#cb25-510"></a>same length (but where the list elements have different classes).</span>
+<span id="cb25-511"><a href="#cb25-511"></a></span>
+<span id="cb25-512"><a href="#cb25-512"></a>Lists are a very flexible data structure but can be very confusing</span>
+<span id="cb25-513"><a href="#cb25-513"></a>because list elements can be lists themselves!</span>
+<span id="cb25-514"><a href="#cb25-514"></a></span>
+<span id="cb25-515"><a href="#cb25-515"></a>We can explore the structure of a list in two ways:</span>
+<span id="cb25-516"><a href="#cb25-516"></a></span>
+<span id="cb25-517"><a href="#cb25-517"></a><span class="ss">-   </span>Entering <span class="in">`View(list_object)`</span> in the Console. The triangle buttons on</span>
+<span id="cb25-518"><a href="#cb25-518"></a>    the left allow you to toggle dropdowns to explore list elements.</span>
+<span id="cb25-519"><a href="#cb25-519"></a><span class="ss">-   </span>Using the <span class="in">`str()`</span> (structure) function.</span>
+<span id="cb25-520"><a href="#cb25-520"></a></span>
+<span id="cb25-521"><a href="#cb25-521"></a>Using base R subsetting, we can access elements of a list in three ways:</span>
+<span id="cb25-522"><a href="#cb25-522"></a></span>
+<span id="cb25-523"><a href="#cb25-523"></a><span class="ss">-   </span>By *position* with double square brackets <span class="in">`[[`</span>:</span>
+<span id="cb25-524"><a href="#cb25-524"></a></span>
+<span id="cb25-525"><a href="#cb25-525"></a><span class="in">```{r list_access1}</span></span>
+<span id="cb25-526"><a href="#cb25-526"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-527"><a href="#cb25-527"></a><span class="co"># This gets the first element of the list</span></span>
+<span id="cb25-528"><a href="#cb25-528"></a>resp_pt[[<span class="dv">1</span>]]</span>
+<span id="cb25-529"><a href="#cb25-529"></a><span class="in">```</span></span>
+<span id="cb25-530"><a href="#cb25-530"></a></span>
+<span id="cb25-531"><a href="#cb25-531"></a><span class="ss">-   </span>By *name* with double square brackets <span class="in">`[[`</span>: (note that list elements</span>
+<span id="cb25-532"><a href="#cb25-532"></a>    are not always named, so this won't always be possible)</span>
+<span id="cb25-533"><a href="#cb25-533"></a></span>
+<span id="cb25-534"><a href="#cb25-534"></a><span class="in">```{r list_access2}</span></span>
+<span id="cb25-535"><a href="#cb25-535"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-536"><a href="#cb25-536"></a><span class="co"># Accessing by name directly</span></span>
+<span id="cb25-537"><a href="#cb25-537"></a>resp_pt[[<span class="st">"status"</span>]]</span>
+<span id="cb25-538"><a href="#cb25-538"></a></span>
+<span id="cb25-539"><a href="#cb25-539"></a><span class="co"># Accessing via a variable</span></span>
+<span id="cb25-540"><a href="#cb25-540"></a>which_element <span class="ot">&lt;-</span> <span class="st">"status"</span></span>
+<span id="cb25-541"><a href="#cb25-541"></a>resp_pt[[which_element]]</span>
+<span id="cb25-542"><a href="#cb25-542"></a><span class="in">```</span></span>
+<span id="cb25-543"><a href="#cb25-543"></a></span>
+<span id="cb25-544"><a href="#cb25-544"></a><span class="ss">-   </span>By *name* with a dollar sign <span class="in">`$`</span>: (Helpful tip: For this mode of</span>
+<span id="cb25-545"><a href="#cb25-545"></a>    access, RStudio allows tab completion to fill in the full name)</span>
+<span id="cb25-546"><a href="#cb25-546"></a></span>
+<span id="cb25-547"><a href="#cb25-547"></a><span class="in">```{r list_access3}</span></span>
+<span id="cb25-548"><a href="#cb25-548"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-549"><a href="#cb25-549"></a>resp_pt<span class="sc">$</span>status</span>
+<span id="cb25-550"><a href="#cb25-550"></a><span class="in">```</span></span>
+<span id="cb25-551"><a href="#cb25-551"></a></span>
+<span id="cb25-552"><a href="#cb25-552"></a>We can retrieve these *nested* attributes by sequentially accessing the</span>
+<span id="cb25-553"><a href="#cb25-553"></a>object keys from the outside in. For example, the <span class="in">`meta`</span> element would</span>
+<span id="cb25-554"><a href="#cb25-554"></a>be accessed as follows:</span>
+<span id="cb25-555"><a href="#cb25-555"></a></span>
+<span id="cb25-556"><a href="#cb25-556"></a><span class="in">```{r list_access4}</span></span>
+<span id="cb25-557"><a href="#cb25-557"></a><span class="co">#| eval: false</span></span>
+<span id="cb25-558"><a href="#cb25-558"></a>resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta</span>
+<span id="cb25-559"><a href="#cb25-559"></a><span class="in">```</span></span>
+<span id="cb25-560"><a href="#cb25-560"></a></span>
+<span id="cb25-561"><a href="#cb25-561"></a>**Exercise:** In the <span class="in">`resp_pt`</span> object, retrieve the data associated</span>
+<span id="cb25-562"><a href="#cb25-562"></a>with:</span>
+<span id="cb25-563"><a href="#cb25-563"></a></span>
+<span id="cb25-564"><a href="#cb25-564"></a><span class="ss">-   </span>the <span class="in">`copyright`</span> key</span>
+<span id="cb25-565"><a href="#cb25-565"></a></span>
+<span id="cb25-566"><a href="#cb25-566"></a><span class="ss">-   </span>the number of <span class="in">`hits`</span> (number of search results) within the <span class="in">`meta`</span></span>
+<span id="cb25-567"><a href="#cb25-567"></a>    object</span>
+<span id="cb25-568"><a href="#cb25-568"></a></span>
+<span id="cb25-569"><a href="#cb25-569"></a><span class="ss">-   </span>the abstracts and leading paragraphs of the articles found in the</span>
+<span id="cb25-570"><a href="#cb25-570"></a>    search</span>
+<span id="cb25-571"><a href="#cb25-571"></a></span>
+<span id="cb25-572"><a href="#cb25-572"></a>    <span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb25-573"><a href="#cb25-573"></a>    resp_pt<span class="sc">$</span>copyright</span>
+<span id="cb25-574"><a href="#cb25-574"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>meta<span class="sc">$</span>hits</span>
+<span id="cb25-575"><a href="#cb25-575"></a></span>
+<span id="cb25-576"><a href="#cb25-576"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>abstract</span>
+<span id="cb25-577"><a href="#cb25-577"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs<span class="sc">$</span>lead_paragraph</span>
+<span id="cb25-578"><a href="#cb25-578"></a></span>
+<span id="cb25-579"><a href="#cb25-579"></a>    <span class="co"># Both (abstract and leading paragraph) at once</span></span>
+<span id="cb25-580"><a href="#cb25-580"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs[<span class="fu">c</span>(<span class="st">"abstract"</span>, <span class="st">"lead_paragraph"</span>)]</span>
+<span id="cb25-581"><a href="#cb25-581"></a>    resp_pt<span class="sc">$</span>response<span class="sc">$</span>docs <span class="sc">|&gt;</span></span>
+<span id="cb25-582"><a href="#cb25-582"></a>        <span class="fu">select</span>(abstract, lead_paragraph)</span>
+<span id="cb25-583"><a href="#cb25-583"></a>    <span class="in">```</span></span>
+<span id="cb25-584"><a href="#cb25-584"></a></span>
+<span id="cb25-585"><a href="#cb25-585"></a><span class="fu">## Done!</span></span>
+<span id="cb25-586"><a href="#cb25-586"></a></span>
+<span id="cb25-587"><a href="#cb25-587"></a><span class="ss">-   </span>Check the ICA Instructions for how to (a) push your code to GitHub</span>
+<span id="cb25-588"><a href="#cb25-588"></a>    and (b) update your portfolio website</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
